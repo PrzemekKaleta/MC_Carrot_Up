@@ -6,6 +6,14 @@ public class Tag {
     private String tagName;
     private String tagDescription;
 
+    public Tag() {}
+
+    public Tag(int tagId, String tagName, String tagDescription) {
+        this.tagId = tagId;
+        this.tagName = tagName;
+        this.tagDescription = tagDescription;
+    }
+
     public int getTagId() {
         return tagId;
     }
@@ -26,7 +34,7 @@ public class Tag {
         return tagDescription;
     }
 
-    public void setTagDescryption(String tagDescription) {
+    public void setTagDescription(String tagDescription) {
         this.tagDescription = tagDescription;
     }
 }
