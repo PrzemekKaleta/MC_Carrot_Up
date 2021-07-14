@@ -1,1 +1,8 @@
 CREATE DATABASE carrot CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE TABLE tag (tag_id INT AUTO_INCREMENT PRIMARY KEY, tag_name VARCHAR(30) UNIQUE, tag_description VARCHAR(255));
+CREATE TABLE carrot.buffer (buffer_id INT AUTO_INCREMENT PRIMARY KEY, buffer_date DATE, buffer_upload FLOAT(6,2), buffer_carrots FLOAT (6,2));
+CREATE TABLE carrot.training (training_id INT NOT NULL AUTO_INCREMENT, buffer_id INT NOT NULL, training_hours FLOAT(6,2), training_description VARCHAR(255), PRIMARY KEY (training_id), FOREIGN KEY (buffer_id) REFERENCES carrot.buffer (buffer_id));
+CREATE TABLE carrot.tag_training (tag_training_id INT AUTO_INCREMENT, tag_id INT NOT NULL, training_id INT NOT NULL, PRIMARY KEY (tag_training_id), FOREIGN KEY (tag_id) REFERENCES carrot.tag (tag_id), FOREIGN KEY (training_id) REFERENCES carrot.training (training_id));
+CREATE TABLE carrot.game (game_id INT NOT NULL AUTO_INCREMENT, buffer_id INT NOT NULL, game_hours FLOAT(6,2), game_description VARCHAR(255), PRIMARY KEY (game_id), FOREIGN KEY (buffer_id) REFERENCES carrot.buffer (buffer_id));
+CREATE TABLE carrot.kind (kind_id INT AUTO_INCREMENT PRIMARY KEY, kind_name VARCHAR(30) UNIQUE, kind_description VARCHAR(255), kind_ratio FLOAT(4,2));
+CREATE TABLE carrot.success (success_id INT NOT NULL AUTO_INCREMENT, buffer_id INT NOT NULL, kind_id INT NOT NULL, success_description VARCHAR(255), PRIMARY KEY (success_id), FOREIGN KEY (buffer_id) REFERENCES carrot.buffer (buffer_id), FOREIGN KEY (kind_id) REFERENCES carrot.kind (kind_id));

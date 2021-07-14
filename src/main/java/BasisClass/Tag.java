@@ -4,7 +4,7 @@ public class Tag {
 
     private int tagId;
     private String tagName;
-    private String tagDescryption;
+    private String tagDescription;
 
     public int getTagId() {
         return tagId;
@@ -22,11 +22,11 @@ public class Tag {
         this.tagName = tagName;
     }
 
-    public String getTagDescryption() {
-        return tagDescryption;
+    public String getTagDescription() {
+        return tagDescription;
     }
 
-    public void setTagDescryption(String tagDescryption) {
-        this.tagDescryption = tagDescryption;
+    public void setTagDescryption(String tagDescription) {
+        this.tagDescription = tagDescription;
     }
 }
