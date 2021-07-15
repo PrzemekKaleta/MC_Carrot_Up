@@ -24,6 +24,8 @@ public class ServletTag extends HttpServlet {
         Tag tag = tagDAO.getTagByName(tagName);
         request.setAttribute("tag", tag);
 
+        request.setAttribute("tags",tagDAO.getAllTags());
+
         getServletContext().getRequestDispatcher("/tag.jsp").forward(request, response);
 
 

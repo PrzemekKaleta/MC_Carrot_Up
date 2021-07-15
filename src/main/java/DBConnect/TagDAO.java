@@ -46,9 +46,9 @@ public class TagDAO {
 
             while(rs.next()){
 
-                tag.setTagId(rs.getInt("tagId"));
-                tag.setTagName(rs.getString("tagName"));
-                tag.setTagDescription(rs.getString("tagDescription"));
+                tag.setTagId(rs.getInt("tag_id"));
+                tag.setTagName(rs.getString("tag_name"));
+                tag.setTagDescription(rs.getString("tag_description"));
 
             }
 
