@@ -12,17 +12,19 @@ public class TagDAO {
 
     private static String addTagQuery = "INSERT INTO tag (tag_name, tag_description) VALUES (?,?);";
     private static String getAllTagsQuery = "SELECT * FROM tag;";
+    private static String getTagByNameQuery = "SELECT * FROM tag WHERE tag_name = ?;";
 
     public void addTag(Tag tag){
 
         try{
+
             Connection connection = DBUtil.getConn();
 
             PreparedStatement ps = connection.prepareStatement(addTagQuery);
             ps.setString(1, tag.getTagName());
             ps.setString(2, tag.getTagDescription());
 
-            ps.executeQuery();
+            ps.executeUpdate();
 
 
         }catch (SQLException ex){
@@ -30,6 +32,31 @@ public class TagDAO {
         }
 
 
+    }
+
+    public Tag getTagByName(String tagName){
+
+        Tag tag = new Tag();
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getTagByNameQuery);
+            ps.setString(1, tagName);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                tag.setTagId(rs.getInt("tagId"));
+                tag.setTagName(rs.getString("tagName"));
+                tag.setTagDescription(rs.getString("tagDescription"));
+
+            }
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return tag;
     }
 
     public ArrayList<Tag> getAllTags(){
@@ -44,8 +71,8 @@ public class TagDAO {
             while(rs.next()){
                 int tagID = rs.getInt("tag_id");
                 String tagName = rs.getString("tag_name");
-                String tagDesrcription = rs.getString("tag_description");
-                tags.add(new Tag(tagID,tagName,tagDesrcription));
+                String tagDescription = rs.getString("tag_description");
+                tags.add(new Tag(tagID,tagName,tagDescription));
             }
 
 

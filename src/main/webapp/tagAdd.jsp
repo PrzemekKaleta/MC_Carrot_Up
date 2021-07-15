@@ -27,9 +27,8 @@
                 <input type="submit" value="Create">
         </form>
 
-        <c:forEach var="tags" items="${tag}" varStatus="countStat">
-            Tag${countStat.count }
-            Name: ${tag.tagName}<br>
+        <c:forEach var="tag" items="${tags}">
+                <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
         </c:forEach>
 
     </body>

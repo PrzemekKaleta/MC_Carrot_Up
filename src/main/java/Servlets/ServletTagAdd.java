@@ -16,21 +16,27 @@ public class ServletTagAdd extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("POST RUN");
-
         String tagName = request.getParameter("name");
         String tagDescription = request.getParameter("description");
 
         TagDAO tagDAO = new TagDAO();
         ArrayList<Tag> tags = tagDAO.getAllTags();
 
-        for(Tag simpleTag : tags){
-            if(simpleTag.getTagName().equals(tagName)){
+        boolean tagCanBeSave = true;
 
-                request.setAttribute("added", false);
-                System.out.println("FALSE 1");
+        if(!tags.isEmpty()){
 
-            }else{
+            for(Tag simpleTag : tags) {
+                if (simpleTag.getTagName().equals(tagName)) {
+
+                    request.setAttribute("added", false);
+                    tagCanBeSave = false;
+
+                }
+            }
+        }
+
+        if(tagCanBeSave){
 
                 Tag tag = new Tag();
                 tag.setTagName(tagName);
@@ -39,9 +45,7 @@ public class ServletTagAdd extends HttpServlet {
                 tagDAO.addTag(tag);
 
                 request.setAttribute("added", true);
-                System.out.println("TRUE 1");
 
-            }
         }
 
 
@@ -54,9 +58,12 @@ public class ServletTagAdd extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        System.out.println("GET RUN");
 
         TagDAO tagDAO = new TagDAO();
+
+        for(Tag tagSingle : tagDAO.getAllTags()){
+            System.out.println(tagSingle.getTagName());
+        }
 
         request.setAttribute("tags",tagDAO.getAllTags());
 
