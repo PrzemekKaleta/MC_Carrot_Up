@@ -1,22 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: przemo
-  Date: 13.07.21
-  Time: 21:51
+  Date: 16.07.21
+  Time: 22:14
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Main page</title>
-</head>
+    <head>
+        <title>Footer Part Page</title>
+    </head>
     <body>
 
-    <%@ include file="header.jspf" %>
-
-        <h1>Welcome to Carrot</h1>
-
-    <%@ include file="footer.jspf" %>
-
+    <p>My <a href="https://github.com/PrzemekKaleta?tab=repositories">work</a></p>
     </body>
 </html>

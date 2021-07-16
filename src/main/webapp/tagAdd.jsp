@@ -13,6 +13,7 @@
 </head>
     <body>
 
+    <%@ include file="header.jspf" %>
         <h1>Here you can add new TAG for training</h1>
 
         <p>Please consider that TAG should have unique name.</p>
@@ -30,6 +31,8 @@
         <c:forEach var="tag" items="${tags}">
                 <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
         </c:forEach>
+
+    <%@ include file="footer.jspf" %>
 
     </body>
 </html>

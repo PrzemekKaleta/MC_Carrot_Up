@@ -14,7 +14,9 @@
 </head>
     <body>
 
-        <h1>Chosen Tag Description</h1>
+    <%@ include file="header.jspf" %>
+
+    <h1>Chosen Tag Description</h1>
         <h2>${tag.tagName}</h2>
         <h2>${tag.tagDescription}</h2>
 
@@ -23,6 +25,7 @@
             <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
         </c:forEach>
 
+    <%@ include file="footer.jspf" %>
 
     </body>
 </html>
