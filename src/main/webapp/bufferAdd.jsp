@@ -17,15 +17,17 @@
 <form action="/buffer-add" method="post">
     <legend>Please add buffer by this tool:</legend>
     <label>Add date:
-        <input type="date" placeholder="${currentDate}">
+        <input type="date" name="bufferDate" value=${currentDate}>
     </label>
-    <label>Add upload"
-        <input type="number">
+    <label>Add upload:
+        <input type="number" step="0.01" name="bufferUpload" value="0.1">
     </label>
-    <label>Add buffer"
-        <input type="number">
+    <label>Add buffer:
+        <input type="number" step="0.01" name="bufferCarrot" value="1">
     </label>
         <input type="submit" value="Save buffer">
+
+
 
 </form>
 

@@ -11,8 +11,8 @@
     <title>Tool Header JSPF</title>
 </head>
 <body>
-
-<a href="/buffer-add"> Add buffer </a>
+<br>
+<a href="/buffer-add">   Add buffer   </a>
 
 </body>
 </html>

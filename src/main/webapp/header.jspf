@@ -12,7 +12,7 @@
     </head>
     <body>
 
-    <a href="/tag"> Tag </a><a href="/tag-add"> Add tag </a>
+    <a href="/tag">   Tag   </a><a href="/tag-add">   Add tag   </a>
     <%@ include file="toolheader.jspf" %>
 
     </body>
