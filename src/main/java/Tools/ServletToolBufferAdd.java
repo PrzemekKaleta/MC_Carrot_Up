@@ -9,27 +9,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
-@WebServlet("/t1")
-public class ServletTool1 extends HttpServlet {
+@WebServlet("/buffer-add")
+public class ServletToolBufferAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        try{
-            Connection connection = DBUtil.getConn();
-            System.out.println("connection successfully");
+        Date currentDate = Date.valueOf(LocalDate.now());
 
-        }catch (SQLException ex){
+        request.setAttribute("currentDate", currentDate);
 
-            ex.printStackTrace();
-            System.out.println("connection failed");
-        }
-
-        getServletContext().getRequestDispatcher("/").forward(request,response);
+        getServletContext().getRequestDispatcher("/bufferAdd.jsp").forward(request,response);
 
     }
 }

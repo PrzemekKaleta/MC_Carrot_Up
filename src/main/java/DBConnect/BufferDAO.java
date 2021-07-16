@@ -1,0 +1,56 @@
+package DBConnect;
+
+import BasisClass.Buffer;
+
+import java.sql.*;
+
+public class BufferDAO {
+
+    private static String getLastBufferQuery = "SELECT * FROM buffer ORDER BY buffer_id DESC LIMIT 1;";
+    private static String addBufferQuery = "INSERT INTO buffer (buffer_date, buffer_upload, buffer_carrots) VALUES (?, ?, ?);";
+
+    public Buffer getLastBuffer(){
+
+        Buffer buffer = new Buffer();
+
+        try{
+            Connection connection = DBUtil.getConn();
+
+            PreparedStatement ps = connection.prepareStatement(getLastBufferQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                int bufferID = rs.getInt("buffer_id");
+                Date bufferDate = rs.getDate("buffer_date");
+                double bufferUpload = rs.getDouble("buffer_upload");
+                double bufferCarrots = rs.getDouble("buffer_carrots");
+                buffer.setBufferId(bufferID);
+                buffer.setBufferDate(bufferDate);
+                buffer.setBufferUpload(bufferUpload);
+                buffer.setBufferCarrots(bufferCarrots);
+            }
+
+
+        }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return buffer;
+    }
+
+    public void addBuffer(Buffer buffer){
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(addBufferQuery);
+            ps.setDate(1, buffer.getBufferDate());
+            ps.setDouble(2, buffer.getBufferUpload());
+            ps.setDouble(3, buffer.getBufferCarrots());
+            ps.executeUpdate();
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+    }
+}
