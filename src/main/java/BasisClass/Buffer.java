@@ -1,6 +1,7 @@
 package BasisClass;
 
 import java.sql.Date;
+import java.util.StringJoiner;
 
 public class Buffer {
 
@@ -39,5 +40,15 @@ public class Buffer {
 
     public void setBufferCarrots(double bufferCarrots) {
         this.bufferCarrots = bufferCarrots;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Buffer.class.getSimpleName() + "[", "]")
+                .add("bufferId=" + bufferId)
+                .add("bufferDate=" + bufferDate)
+                .add("bufferUpload=" + bufferUpload)
+                .add("bufferCarrots=" + bufferCarrots)
+                .toString();
     }
 }
