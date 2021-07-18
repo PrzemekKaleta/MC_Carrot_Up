@@ -28,9 +28,10 @@ public class ServletMain extends HttpServlet {
         String milk = "MIKL";
 
         request.setAttribute("buffers", buffers);
-        request.setAttribute("milk", milk);
+        request.setAttribute("milk", "milk");
 
-        getServletContext().getRequestDispatcher("/index.jsp").forward(request,response);
+
+        getServletContext().getRequestDispatcher("/my.jsp").forward(request,response);
 
     }
 }
