@@ -3,6 +3,7 @@ package BasisClass;
 public class Training {
 
     private int trainingId;
+    private int bufferId;
     private double trainingHours;
     private String trainingDescryption;
 
@@ -12,6 +13,14 @@ public class Training {
 
     public void setTrainingId(int trainingId) {
         this.trainingId = trainingId;
+    }
+
+    public int getBufferId() {
+        return bufferId;
+    }
+
+    public void setBufferId(int bufferId) {
+        this.bufferId = bufferId;
     }
 
     public double getTrainingHours() {

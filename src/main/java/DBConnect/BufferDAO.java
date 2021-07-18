@@ -74,19 +74,21 @@ public class BufferDAO {
         return buffer;
     }
 
-    public void addBuffer(Buffer buffer){
+    public int addBuffer(Buffer buffer){
+
+        int update = 0;
 
         try{
             Connection connection = DBUtil.getConn();
-            PreparedStatement ps = connection.prepareStatement(addBufferQuery);
+            PreparedStatement ps = connection.prepareStatement(addBufferQuery, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setDate(1, buffer.getBufferDate());
             ps.setDouble(2, buffer.getBufferUpload());
             ps.setDouble(3, buffer.getBufferCarrots());
-            ps.executeUpdate();
+            update = ps.executeUpdate();
 
         }catch (SQLException ex){
             ex.printStackTrace();
         }
-
+        return update;
     }
 }

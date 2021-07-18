@@ -15,6 +15,10 @@ public class TrainingDAO {
         try{
             Connection connection = DBUtil.getConn();
             PreparedStatement ps = connection.prepareStatement(addTrainingQuerry);
+            ps.setInt(1, training.getBufferId());
+            ps.setDouble(2, training.getTrainingHours());
+            ps.setString(3, training.getTrainingDescryption());
+            ps.executeUpdate();
 
 
         }catch (SQLException ex){

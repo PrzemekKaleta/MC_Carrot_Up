@@ -18,7 +18,7 @@
 <h2>Last training</h2>
 
 
-<form action="/trainingAdd" method="get">
+<form action="/trainingAdd" method="post">
     <legend><h2>Add new Training</h2></legend>
 
     <label>Write hours of training:<br>
@@ -33,7 +33,7 @@
     <label>Chose tags suitable to training:<br>
 
         <c:forEach items="${tags}" var="tag" varStatus="count">
-            <input type="checkbox" name="chosenTags2" value="${tag.tagId}"><a href="/tag?name=${tag.tagName}">${tag.tagName}</a><c:if test="${count.count%5==0}"><br></c:if>
+            <input type="checkbox" name="chosenTags" value="${tag.tagId}"><a href="/tag?name=${tag.tagName}">${tag.tagName}</a><c:if test="${count.count%5==0}"><br></c:if>
         </c:forEach>
 
     </label><br><br>

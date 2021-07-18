@@ -19,7 +19,6 @@ public class ServletToolBufferAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String bufferDateAsString = request.getParameter("bufferDate");
-        System.out.println(bufferDateAsString);
 
         Buffer buffer = new Buffer();
 
@@ -42,6 +41,8 @@ public class ServletToolBufferAdd extends HttpServlet {
 
         BufferDAO bufferDAO = new BufferDAO();
         bufferDAO.addBuffer(buffer);
+
+
 
 
 
