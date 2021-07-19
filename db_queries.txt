@@ -6,3 +6,5 @@ CREATE TABLE carrot.tag_training (tag_training_id INT AUTO_INCREMENT, tag_id INT
 CREATE TABLE carrot.game (game_id INT NOT NULL AUTO_INCREMENT, buffer_id INT NOT NULL, game_hours FLOAT(6,2), game_description VARCHAR(255), PRIMARY KEY (game_id), FOREIGN KEY (buffer_id) REFERENCES carrot.buffer (buffer_id));
 CREATE TABLE carrot.kind (kind_id INT AUTO_INCREMENT PRIMARY KEY, kind_name VARCHAR(30) UNIQUE, kind_description VARCHAR(255), kind_ratio FLOAT(4,2));
 CREATE TABLE carrot.success (success_id INT NOT NULL AUTO_INCREMENT, buffer_id INT NOT NULL, kind_id INT NOT NULL, success_description VARCHAR(255), PRIMARY KEY (success_id), FOREIGN KEY (buffer_id) REFERENCES carrot.buffer (buffer_id), FOREIGN KEY (kind_id) REFERENCES carrot.kind (kind_id));
+
+ALTER TABLE carrot.tag ADD tag_active BOOLEAN NOT NULL;

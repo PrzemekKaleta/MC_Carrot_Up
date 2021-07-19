@@ -5,6 +5,7 @@ import BasisClass.Tag;
 import BasisClass.Training;
 import DBConnect.BufferDAO;
 import DBConnect.TagDAO;
+import DBConnect.TagTrainingDAO;
 import DBConnect.TrainingDAO;
 
 import javax.servlet.ServletException;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class ServletTrainingAdd extends HttpServlet {
 
     protected static double trainingRatio = 0.05;
+    static private int quantityOfBuffersToGet = 5;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -33,6 +35,7 @@ public class ServletTrainingAdd extends HttpServlet {
 
         BufferDAO bufferDAO = new BufferDAO();
         TrainingDAO trainingDAO = new TrainingDAO();
+        TagTrainingDAO tagTrainingDAO = new TagTrainingDAO();
 
         Buffer bufferNext = new Buffer();
         Training training = new Training();
@@ -63,7 +66,20 @@ public class ServletTrainingAdd extends HttpServlet {
 
         trainingDAO.addTraining(training);
 
-        getServletContext().getRequestDispatcher("/").forward(request, response);
+        int dualTrainingID = trainingDAO.getLastTraining().getTrainingId();
+
+
+        for(int i = 0; i < chosenTags.length; i++){
+
+            int dualTagID = Integer.parseInt(chosenTags[i]);
+            tagTrainingDAO.setAddTagTraining(dualTagID, dualTrainingID);
+
+        }
+
+        ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
+        request.setAttribute("buffers", buffers);
+
+        getServletContext().getRequestDispatcher("/my.jsp").forward(request, response);
 
 
     }

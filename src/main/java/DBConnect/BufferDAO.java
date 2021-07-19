@@ -84,7 +84,9 @@ public class BufferDAO {
             ps.setDate(1, buffer.getBufferDate());
             ps.setDouble(2, buffer.getBufferUpload());
             ps.setDouble(3, buffer.getBufferCarrots());
-            update = ps.executeUpdate();
+            ps.executeUpdate();
+
+            update = getLastBuffer().getBufferId();
 
         }catch (SQLException ex){
             ex.printStackTrace();

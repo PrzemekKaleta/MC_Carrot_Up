@@ -14,7 +14,7 @@ import java.util.ArrayList;
 @WebServlet("/")
 public class ServletMain extends HttpServlet {
 
-    static private int quantityOfBuffersToGet = 2;
+    static private int quantityOfBuffersToGet = 5;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -25,11 +25,7 @@ public class ServletMain extends HttpServlet {
         BufferDAO bufferDAO = new BufferDAO();
         ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
 
-        String milk = "MIKL";
-
         request.setAttribute("buffers", buffers);
-        request.setAttribute("milk", "milk");
-
 
         getServletContext().getRequestDispatcher("/my.jsp").forward(request,response);
 
