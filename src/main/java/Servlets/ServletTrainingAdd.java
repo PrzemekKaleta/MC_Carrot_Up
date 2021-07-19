@@ -88,7 +88,7 @@ public class ServletTrainingAdd extends HttpServlet {
 
         TagDAO tagDAO = new TagDAO();
 
-        ArrayList<Tag> tags = tagDAO.getAllTags();
+        ArrayList<Tag> tags = tagDAO.getAllActiveTags();
         request.setAttribute("tags", tags);
 
         Date currentDate = Date.valueOf(LocalDate.now());

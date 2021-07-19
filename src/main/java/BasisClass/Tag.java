@@ -5,13 +5,15 @@ public class Tag {
     private int tagId;
     private String tagName;
     private String tagDescription;
+    private boolean tagActive;
 
     public Tag() {}
 
-    public Tag(int tagId, String tagName, String tagDescription) {
+    public Tag(int tagId, String tagName, String tagDescription, boolean tagActive) {
         this.tagId = tagId;
         this.tagName = tagName;
         this.tagDescription = tagDescription;
+        this.tagActive = tagActive;
     }
 
     public int getTagId() {
@@ -36,5 +38,13 @@ public class Tag {
 
     public void setTagDescription(String tagDescription) {
         this.tagDescription = tagDescription;
+    }
+
+    public boolean isTagActive() {
+        return tagActive;
+    }
+
+    public void setTagActive(boolean tagActive) {
+        this.tagActive = tagActive;
     }
 }

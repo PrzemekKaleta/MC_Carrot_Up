@@ -16,14 +16,28 @@
 
     <%@ include file="header.jspf" %>
 
+    <c:if test="${not empty tag.tagName}">
+
     <h1>Chosen Tag Description</h1>
         <h2>${tag.tagName}</h2>
         <h2>${tag.tagDescription}</h2>
+        <c:if test="${tag.tagActive == true}">ACTIVE</c:if>
+        <c:if test="${tag.tagActive != true}">NON ACTIVE</c:if>
+
+        <button value="Change activity"><a href="/tag?name=${tag.tagName}&change=true">Change</a></button>
+
+    </c:if>
 
 
-        <c:forEach var="tag" items="${tags}">
+        <p>Active tags:</p>
+        <c:forEach var="tag" items="${activeTags}">
             <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
-        </c:forEach>
+        </c:forEach><br>
+
+        <p>Non active tags:</p>
+        <c:forEach var="tag" items="${nonActiveTags}">
+            <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
+        </c:forEach><br>
 
     <%@ include file="footer.jspf" %>
 

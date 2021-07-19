@@ -41,6 +41,7 @@ public class ServletTagAdd extends HttpServlet {
                 Tag tag = new Tag();
                 tag.setTagName(tagName);
                 tag.setTagDescription(tagDescription);
+                tag.setTagActive(true);
 
                 tagDAO.addTag(tag);
 

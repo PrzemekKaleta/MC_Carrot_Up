@@ -19,12 +19,20 @@ public class ServletTag extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String tagName = request.getParameter("name");
+        boolean isChosen = Boolean.parseBoolean(request.getParameter("change"));
+
+
+
         TagDAO tagDAO = new TagDAO();
+
+        if(isChosen){
+            tagDAO.changeActivityTagByName(tagName);
+        }
 
         Tag tag = tagDAO.getTagByName(tagName);
         request.setAttribute("tag", tag);
-
-        request.setAttribute("tags",tagDAO.getAllTags());
+        request.setAttribute("activeTags",tagDAO.getAllActiveTags());
+        request.setAttribute("nonActiveTags",tagDAO.getAllNonActiveTags());
 
         getServletContext().getRequestDispatcher("/tag.jsp").forward(request, response);
 
