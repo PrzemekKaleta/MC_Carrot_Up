@@ -3,8 +3,9 @@ package BasisClass;
 public class Game {
 
     private int gameId;
+    private int bufferId;
     private double gameHours;
-    private double gameDescription;
+    private String gameDescription;
 
     public int getGameId() {
         return gameId;
@@ -12,6 +13,14 @@ public class Game {
 
     public void setGameId(int gameId) {
         this.gameId = gameId;
+    }
+
+    public int getBufferId() {
+        return bufferId;
+    }
+
+    public void setBufferId(int bufferId) {
+        this.bufferId = bufferId;
     }
 
     public double getGameHours() {
@@ -22,11 +31,11 @@ public class Game {
         this.gameHours = gameHours;
     }
 
-    public double getGameDescription() {
+    public String getGameDescription() {
         return gameDescription;
     }
 
-    public void setGameDescription(double gameDescription) {
+    public void setGameDescription(String gameDescription) {
         this.gameDescription = gameDescription;
     }
 }

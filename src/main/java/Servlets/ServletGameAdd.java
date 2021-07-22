@@ -1,12 +1,9 @@
 package Servlets;
 
 import BasisClass.Buffer;
-import BasisClass.Tag;
-import BasisClass.Training;
+import BasisClass.Game;
 import DBConnect.BufferDAO;
-import DBConnect.TagDAO;
-import DBConnect.TagTrainingDAO;
-import DBConnect.TrainingDAO;
+import DBConnect.GameDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,33 +17,31 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-@WebServlet("/trainingAdd")
-public class ServletTrainingAdd extends HttpServlet {
+@WebServlet("/game-add")
+public class ServletGameAdd extends HttpServlet {
 
-    private static double trainingRatio = 0.05;
+    private static double gamingRatio = -1.0;
     static private int quantityOfBuffersToGet = 5;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String dateOfTraining = request.getParameter("date");
-        String hoursOfTraining = request.getParameter("hours");
-        String descriptionOfTraining = request.getParameter("description");
-        String[] chosenTags = request.getParameterValues("chosenTags");
+        String dateOfGaming = request.getParameter("date");
+        String hoursOfGaming = request.getParameter("hours");
+        String descriptionOfGaming = request.getParameter("description");
 
         BufferDAO bufferDAO = new BufferDAO();
-        TrainingDAO trainingDAO = new TrainingDAO();
-        TagTrainingDAO tagTrainingDAO = new TagTrainingDAO();
+        GameDAO gameDAO = new GameDAO();
 
         Buffer bufferNext = new Buffer();
-        Training training = new Training();
+        Game game = new Game();
 
         Buffer bufferPrevious = bufferDAO.getLastBuffer();
         double carrotsPrevious = bufferPrevious.getBufferCarrots();
-        double bufferUpload = Double.parseDouble(hoursOfTraining) * trainingRatio;
+        double bufferUpload = Double.parseDouble(hoursOfGaming) * gamingRatio;
         double carrotsNext = carrotsPrevious + bufferUpload;
 
         try{
-            java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateOfTraining);
+            java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateOfGaming);
             Date trainingDateToBuffer = new java.sql.Date(utilDate.getTime());
             bufferNext.setBufferDate(trainingDateToBuffer);
 
@@ -59,22 +54,11 @@ public class ServletTrainingAdd extends HttpServlet {
 
         int idOfNextBuffer = bufferDAO.addBuffer(bufferNext);
 
+        game.setGameDescription(descriptionOfGaming);
+        game.setGameHours(Double.parseDouble(hoursOfGaming));
+        game.setBufferId(idOfNextBuffer);
 
-        training.setTrainingDescryption(descriptionOfTraining);
-        training.setTrainingHours(Double.parseDouble(hoursOfTraining));
-        training.setBufferId(idOfNextBuffer);
-
-        trainingDAO.addTraining(training);
-
-        int dualTrainingID = trainingDAO.getLastTraining().getTrainingId();
-
-
-        for(int i = 0; i < chosenTags.length; i++){
-
-            int dualTagID = Integer.parseInt(chosenTags[i]);
-            tagTrainingDAO.setAddTagTraining(dualTagID, dualTrainingID);
-
-        }
+        gameDAO.addGame(game);
 
         ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
         request.setAttribute("buffers", buffers);
@@ -82,19 +66,21 @@ public class ServletTrainingAdd extends HttpServlet {
         getServletContext().getRequestDispatcher("/my.jsp").forward(request, response);
 
 
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        TagDAO tagDAO = new TagDAO();
+        BufferDAO bufferDAO = new BufferDAO();
+        double carrots = bufferDAO.getLastBuffer().getBufferCarrots();
 
-        ArrayList<Tag> tags = tagDAO.getAllActiveTags();
-        request.setAttribute("tags", tags);
-
+        request.setAttribute("carrots", carrots);
         Date currentDate = Date.valueOf(LocalDate.now());
         request.setAttribute("currentDate", currentDate);
 
-        getServletContext().getRequestDispatcher("/trainingAdd.jsp").forward(request,response);
+        getServletContext().getRequestDispatcher("/gameAdd.jsp").forward(request,response);
+
 
     }
 }
