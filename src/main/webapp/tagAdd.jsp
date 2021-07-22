@@ -20,18 +20,24 @@
         <p>Please consider that TAG should have unique name.</p>
         <form action="/tag-add" method="post">
             <legend>Please add new tag</legend>
-            <label>Tag name:
+            <label>Tag name:<br>
                 <input type="text" name="name">
-            </label>
-            <label>Tag description:
-                <input type="text" name="description">
-            </label>
+            </label><br>
+            <label>Tag description:<br>
+                <textarea name="description" cols="50" rows="5"></textarea>
+            </label><br>
                 <input type="submit" value="Create">
         </form>
 
-        <c:forEach var="tag" items="${tags}">
-                <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
-        </c:forEach>
+    <p>Active tags:</p>
+    <c:forEach var="tag" items="${activeTags}">
+        <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
+    </c:forEach><br>
+
+    <p>Non active tags:</p>
+    <c:forEach var="tag" items="${nonActiveTags}">
+        <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
+    </c:forEach><br>
 
     <%@ include file="footer.jspf" %>
 
