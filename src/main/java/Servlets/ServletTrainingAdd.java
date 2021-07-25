@@ -3,6 +3,7 @@ package Servlets;
 import BasisClass.Buffer;
 import BasisClass.Tag;
 import BasisClass.Training;
+import BasisClass.TrainingFull;
 import DBConnect.BufferDAO;
 import DBConnect.TagDAO;
 import DBConnect.TagTrainingDAO;
@@ -17,7 +18,10 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @WebServlet("/trainingAdd")
@@ -87,6 +91,11 @@ public class ServletTrainingAdd extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         TagDAO tagDAO = new TagDAO();
+        TrainingDAO trainingDAO = new TrainingDAO();
+        TrainingFull trainingFull = trainingDAO.getLastFullTraining();
+        request.setAttribute("trainingHours", trainingFull.getTraining().getTrainingHours());
+        request.setAttribute("trainingDescription", trainingFull.getTraining().getTrainingDescryption());
+        request.setAttribute("trainingDate", trainingFull.getBuffer().getBufferDate());
 
         ArrayList<Tag> tags = tagDAO.getAllActiveTags();
         request.setAttribute("tags", tags);

@@ -16,6 +16,9 @@
 <%@ include file="header.jspf"%>
 
 <h2>Last training</h2>
+<p>Date: ${trainingDate}</p>
+<p>Hours: ${trainingHours}</p>
+<p>Description: ${trainingDescription}</p>
 
 
 <form action="/trainingAdd" method="post">
