@@ -103,6 +103,11 @@ public class ServletTrainingAdd extends HttpServlet {
         Date currentDate = Date.valueOf(LocalDate.now());
         request.setAttribute("currentDate", currentDate);
 
+        java.sql.Date date1 = trainingFull.getBuffer().getBufferDate();
+
+        long daysBetween = Duration.between(date1.toLocalDate().atStartOfDay(), currentDate.toLocalDate().atStartOfDay()).toDays();
+        request.setAttribute("duration", daysBetween);
+
         getServletContext().getRequestDispatcher("/trainingAdd.jsp").forward(request,response);
 
     }

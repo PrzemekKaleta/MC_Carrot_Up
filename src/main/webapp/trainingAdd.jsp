@@ -15,7 +15,11 @@
 
 <%@ include file="header.jspf"%>
 
-<h2>Last training</h2>
+<h2>Last training <c:if test="${duration == 0}"> was today.</c:if>
+    <c:if test="${duration == 1}"> was yesterday.</c:if>
+    <c:if test="${duration > 1}"> was ${duration} days ago.</c:if>
+
+</h2>
 <p>Date: ${trainingDate}</p>
 <p>Hours: ${trainingHours}</p>
 <p>Description: ${trainingDescription}</p>
