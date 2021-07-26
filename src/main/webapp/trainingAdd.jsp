@@ -29,13 +29,13 @@
     <legend><h2>Add new Training</h2></legend>
 
     <label>Write hours of training:<br>
-        <input type="number" step="0.25" name="hours" min="0.25" value="1.0">
+        <input type="number" step="0.25" name="hours" min="0.25" max="18.00" value="1.0">
     </label><br><br>
     <label>Choose day of training:<br>
-        <input type="date" name="date" value="${currentDate}">
+        <input type="date" name="date" value="${currentDate}" max="${currentDate}">
     </label><br><br>
     <label>Describe training:<br>
-        <textarea name="description"></textarea>
+        <textarea name="description" cols="30" rows="3"></textarea>
     </label><br><br>
     <label>Chose tags suitable to training:<br>
 

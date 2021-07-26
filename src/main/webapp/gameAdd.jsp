@@ -18,13 +18,13 @@
     <p>Current carrots: ${carrots}</p>
     <form action="/game-add" method="post">
         <label>Write hours of gaming:<br>
-            <input type="number" step="0.25" name="hours" min="0.25" value="1.0">
+            <input type="number" step="0.25" name="hours" min="0.25" value="1.0" max="18.00">
         </label><br><br>
         <label>Choose day of gaming:<br>
-            <input type="date" name="date" value="${currentDate}">
+            <input type="date" name="date" value="${currentDate}" max="${currentDate}">
         </label><br><br>
         <label>Describe gaming:<br>
-            <textarea name="description">just a game :)</textarea>
+            <textarea name="description" cols="30" rows="3">just a game :)</textarea>
         </label><br><br>
         <input type="submit" value="Add gaming"><br><br>
     </form>

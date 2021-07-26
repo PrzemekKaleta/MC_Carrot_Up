@@ -20,7 +20,8 @@
 
     <h1>Chosen Tag Description</h1>
         <h2>${tag.tagName}</h2>
-        <h2>${tag.tagDescription}</h2>
+        <h3>${tag.tagDescription}</h3>
+        <h3>This tag was use ${count} times.</h3>
         <c:if test="${tag.tagActive == true}">ACTIVE</c:if>
         <c:if test="${tag.tagActive != true}">NON ACTIVE</c:if>
 

@@ -17,14 +17,16 @@
 
         <h1>Here you can add new TAG for training</h1>
 
-        <p>Please consider that TAG should have unique name.</p>
+    <c:if test="${added==false}"><p>This name is exist, cannot save this tag</p></c:if>
+    <c:if test="${added==true}"><p>Tag was saved</p></c:if>
+        <p>Please consider that TAG should have unique name and you can not change it after all.</p>
         <form action="/tag-add" method="post">
             <legend>Please add new tag</legend>
             <label>Tag name:<br>
                 <input type="text" name="name">
             </label><br>
             <label>Tag description:<br>
-                <textarea name="description" cols="50" rows="5"></textarea>
+                <textarea name="description" cols="30" rows="3"></textarea>
             </label><br>
                 <input type="submit" value="Create">
         </form>

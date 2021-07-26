@@ -8,3 +8,7 @@ CREATE TABLE carrot.kind (kind_id INT AUTO_INCREMENT PRIMARY KEY, kind_name VARC
 CREATE TABLE carrot.success (success_id INT NOT NULL AUTO_INCREMENT, buffer_id INT NOT NULL, kind_id INT NOT NULL, success_description VARCHAR(255), PRIMARY KEY (success_id), FOREIGN KEY (buffer_id) REFERENCES carrot.buffer (buffer_id), FOREIGN KEY (kind_id) REFERENCES carrot.kind (kind_id));
 
 ALTER TABLE carrot.tag ADD tag_active BOOLEAN NOT NULL;
+
+
+Others:
+SELECT tag_id, count(*) as Num FROM carrot.tag_training group by tag_id; - grouping by id and count how many times tags were used;

@@ -72,12 +72,15 @@ public class ServletTrainingAdd extends HttpServlet {
 
         int dualTrainingID = trainingDAO.getLastTraining().getTrainingId();
 
+        try {
+            for (int i = 0; i < chosenTags.length; i++) {
 
-        for(int i = 0; i < chosenTags.length; i++){
+                int dualTagID = Integer.parseInt(chosenTags[i]);
+                tagTrainingDAO.setAddTagTraining(dualTagID, dualTrainingID);
 
-            int dualTagID = Integer.parseInt(chosenTags[i]);
-            tagTrainingDAO.setAddTagTraining(dualTagID, dualTrainingID);
-
+            }
+        }catch (NullPointerException ex){
+            ex.printStackTrace();
         }
 
         ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);

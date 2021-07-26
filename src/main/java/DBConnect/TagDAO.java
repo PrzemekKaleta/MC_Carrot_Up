@@ -16,6 +16,30 @@ public class TagDAO {
     private static String getTagByNameQuery = "SELECT * FROM tag WHERE tag_name = ?;";
     private static String getActivityTagByNameQuery = "SELECT tag_active FROM tag WHERE tag_name = ?;";
     private static String setActivityTagByNameQuery = "UPDATE tag SET tag_active = ? WHERE tag_name = ?;";
+    private static String countTagByIdQuery = "SELECT count(*) as Num FROM tag_training where tag_id = ?;";
+
+    public int countTagById(int tagId){
+
+        int count = 0;
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(countTagByIdQuery);
+            ps.setInt(1,tagId);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                count = rs.getInt("Num");
+            }
+
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return count;
+    }
+
 
     public void addTag(Tag tag){
 

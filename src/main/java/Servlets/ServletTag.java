@@ -30,6 +30,9 @@ public class ServletTag extends HttpServlet {
         }
 
         Tag tag = tagDAO.getTagByName(tagName);
+
+        request.setAttribute("count",tagDAO.countTagById(tag.getTagId()));
+
         request.setAttribute("tag", tag);
         request.setAttribute("activeTags",tagDAO.getAllActiveTags());
         request.setAttribute("nonActiveTags",tagDAO.getAllNonActiveTags());
