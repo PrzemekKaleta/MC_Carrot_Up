@@ -30,6 +30,11 @@
       <input type="submit" value="Create">
   </form>
 
+  <c:forEach var="kind" items="${kinds}">
+    <a href="/kind?name=${kind.kindName}">${kind.kindRatio} : ${kind.kindName}</a><br>
+  </c:forEach>
+
+
   <%@ include file="footer.jspf" %>
 
 </body>

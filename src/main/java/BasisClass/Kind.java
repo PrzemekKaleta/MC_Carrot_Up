@@ -7,6 +7,9 @@ public class Kind {
     private String kindDescription;
     private double kindRatio;
 
+    public Kind() {
+    }
+
     public Kind(int kindId, String kindName, String kindDescription, double kindRatio) {
         this.kindId = kindId;
         this.kindName = kindName;

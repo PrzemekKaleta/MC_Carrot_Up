@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 @WebServlet("/kind-add")
 public class ServletKindAdd extends HttpServlet {
@@ -33,6 +34,12 @@ public class ServletKindAdd extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        KindDAO kindDAO = new KindDAO();
+
+        ArrayList<Kind> kinds = kindDAO.getAllKind();
+
+        request.setAttribute("kinds", kinds);
 
         getServletContext().getRequestDispatcher("/kindAdd.jsp").forward(request,response);
 
