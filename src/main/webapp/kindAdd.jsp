@@ -20,6 +20,8 @@
       <legend>Please add new success type(kind):</legend>
       <label>Kind name:<br>
           <input type="text" name="name">
+
+          <c:if test="${kindExist}">This name already exist, use other name for this success</c:if>
       </label><br>
       <label>Kind description:<br>
           <textarea name="description" cols="30" rows="3"></textarea>

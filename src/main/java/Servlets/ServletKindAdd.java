@@ -19,15 +19,27 @@ public class ServletKindAdd extends HttpServlet {
         String kindDescription = request.getParameter("description");
         double kindRatio = Double.parseDouble(request.getParameter("ratio"));
 
-        Kind kind = new Kind();
-        kind.setKindName(kindName);
-        kind.setKindDescription(kindDescription);
-        kind.setKindRatio(kindRatio);
-
         KindDAO kindDAO = new KindDAO();
-        kindDAO.addKind(kind);
 
+        Kind checkKind = kindDAO.getKindByName(kindName);
 
+        if(null!=checkKind){
+            request.setAttribute("kindExist", true);
+
+        }else {
+
+            Kind kind = new Kind();
+            kind.setKindName(kindName);
+            kind.setKindDescription(kindDescription);
+            kind.setKindRatio(kindRatio);
+
+            kindDAO.addKind(kind);
+
+        }
+
+        ArrayList<Kind> kinds = kindDAO.getAllKind();
+
+        request.setAttribute("kinds", kinds);
 
         getServletContext().getRequestDispatcher("/kindAdd.jsp").forward(request, response);
 
