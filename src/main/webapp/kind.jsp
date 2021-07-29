@@ -23,7 +23,7 @@
 <h2>${kind.kindName}</h2>
     <h3>${kind.kindDescription}</h3>
     <h3>${kind.kindRatio}</h3>
-    <h3>This kind of success was achieve ${count} times.</h3>
+    <h3>This kind of success was achieve ${count} times.<c:if test="${count>0}">Last time at ${lastDate}.</c:if> </h3>
     <h3>This one succes is equals ${proportion} hours of learning.</h3>
 
 </c:if>

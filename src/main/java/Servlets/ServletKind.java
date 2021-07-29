@@ -2,6 +2,7 @@ package Servlets;
 
 import BasisClass.Kind;
 import DBConnect.KindDAO;
+import DBConnect.SuccessDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,11 +31,18 @@ public class ServletKind extends HttpServlet {
             Double proportion = 20 * kind.getKindRatio();
 
 
+            SuccessDAO successDAO = new SuccessDAO();
+
+            String lastDateOfKind = successDAO.getFindDateOfLastUseOfKind(kind.getKindId());
+            int counter = successDAO.countAllRepeatOfKind(kind.getKindId());
+
             request.setAttribute("kind", kind);
 
             request.setAttribute("proportion", proportion);
 
-            request.setAttribute("count", 1);
+            request.setAttribute("count", counter);
+
+            request.setAttribute("lastDate", lastDateOfKind);
 
 
         }
