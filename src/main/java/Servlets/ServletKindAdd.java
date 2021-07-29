@@ -23,7 +23,7 @@ public class ServletKindAdd extends HttpServlet {
 
         Kind checkKind = kindDAO.getKindByName(kindName);
 
-        if(null!=checkKind){
+        if(checkKind.getKindId()!=0){
             request.setAttribute("kindExist", true);
 
         }else {

@@ -63,8 +63,6 @@ public class ServletSuccessAdd extends HttpServlet {
 
         SuccessDAO successDAO = new SuccessDAO();
 
-
-
         KindDAO kindDAO = new KindDAO();
         ArrayList<Kind> kinds= kindDAO.getAllKind();
         request.setAttribute("kinds", kinds);

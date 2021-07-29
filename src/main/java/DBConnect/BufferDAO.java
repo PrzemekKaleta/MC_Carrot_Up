@@ -34,7 +34,7 @@ public class BufferDAO {
                 buffer.setBufferUpload(bufferUpload);
                 buffer.setBufferCarrots(bufferCarrots);
                 buffers.add(buffer);
-                System.out.println(buffer.toString());
+
             }
 
         } catch (SQLException ex) {
@@ -82,7 +82,7 @@ public class BufferDAO {
 
         try {
             Connection connection = DBUtil.getConn();
-            PreparedStatement ps = connection.prepareStatement(addBufferQuery, PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = connection.prepareStatement(addBufferQuery);
             ps.setDate(1, buffer.getBufferDate());
             ps.setDouble(2, buffer.getBufferUpload());
             ps.setDouble(3, buffer.getBufferCarrots());

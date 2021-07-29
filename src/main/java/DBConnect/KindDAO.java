@@ -66,6 +66,7 @@ public class KindDAO {
     public Kind getKindByName(String name){
 
         Kind kind = new Kind();
+        kind.setKindId(0);
 
         try{
 
