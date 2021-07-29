@@ -7,6 +7,15 @@ public class Success {
     private int kindID;
     private String successDescription;
 
+    public Success() {
+    }
+
+    public Success(int bufferID, int kindID, String successDescription) {
+        this.bufferID = bufferID;
+        this.kindID = kindID;
+        this.successDescription = successDescription;
+    }
+
     public int getSuccessID() {
         return successID;
     }

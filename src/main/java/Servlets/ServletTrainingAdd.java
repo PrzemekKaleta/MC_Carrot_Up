@@ -8,6 +8,7 @@ import DBConnect.BufferDAO;
 import DBConnect.TagDAO;
 import DBConnect.TagTrainingDAO;
 import DBConnect.TrainingDAO;
+import Tools.MyDateFormatEditor;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,12 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 @WebServlet("/trainingAdd")
@@ -49,14 +46,8 @@ public class ServletTrainingAdd extends HttpServlet {
         double bufferUpload = Double.parseDouble(hoursOfTraining) * trainingRatio;
         double carrotsNext = carrotsPrevious + bufferUpload;
 
-        try{
-            java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(dateOfTraining);
-            Date trainingDateToBuffer = new java.sql.Date(utilDate.getTime());
-            bufferNext.setBufferDate(trainingDateToBuffer);
-
-        }catch(ParseException ex){
-            ex.printStackTrace();
-        }
+        MyDateFormatEditor formatEditor = new MyDateFormatEditor();
+        bufferNext.setBufferDate(formatEditor.formatDate(dateOfTraining));
 
         bufferNext.setBufferUpload(bufferUpload);
         bufferNext.setBufferCarrots(carrotsNext);

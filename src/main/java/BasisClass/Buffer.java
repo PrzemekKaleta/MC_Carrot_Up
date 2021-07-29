@@ -10,6 +10,15 @@ public class Buffer {
     private double bufferUpload;
     private double bufferCarrots;
 
+    public Buffer() {
+    }
+
+    public Buffer(Date bufferDate, double bufferUpload, double bufferCarrots) {
+        this.bufferDate = bufferDate;
+        this.bufferUpload = bufferUpload;
+        this.bufferCarrots = bufferCarrots;
+    }
+
     public int getBufferId() {
         return bufferId;
     }

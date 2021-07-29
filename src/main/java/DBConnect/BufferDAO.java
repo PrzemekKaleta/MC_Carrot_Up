@@ -1,6 +1,7 @@
 package DBConnect;
 
 import BasisClass.Buffer;
+import BasisClass.Kind;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,17 +12,18 @@ public class BufferDAO {
     private static String getFewLastsBuffersQuery = "SELECT * FROM buffer ORDER BY buffer_id DESC LIMIT ?;";
     private static String addBufferQuery = "INSERT INTO buffer (buffer_date, buffer_upload, buffer_carrots) VALUES (?, ?, ?);";
 
-    public ArrayList<Buffer> getFewLastBuffers(int bufferQuantity){
+
+    public ArrayList<Buffer> getFewLastBuffers(int bufferQuantity) {
 
         ArrayList<Buffer> buffers = new ArrayList<>();
 
-        try{
+        try {
             Connection connection = DBUtil.getConn();
             PreparedStatement ps = connection.prepareStatement(getFewLastsBuffersQuery);
             ps.setInt(1, bufferQuantity);
             ResultSet rs = ps.executeQuery();
 
-            while (rs.next()){
+            while (rs.next()) {
                 Buffer buffer = new Buffer();
                 int bufferID = rs.getInt("buffer_id");
                 Date bufferDate = rs.getDate("buffer_date");
@@ -35,7 +37,7 @@ public class BufferDAO {
                 System.out.println(buffer.toString());
             }
 
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
@@ -45,17 +47,17 @@ public class BufferDAO {
     }
 
 
-    public Buffer getLastBuffer(){
+    public Buffer getLastBuffer() {
 
         Buffer buffer = new Buffer();
 
-        try{
+        try {
             Connection connection = DBUtil.getConn();
 
             PreparedStatement ps = connection.prepareStatement(getLastBufferQuery);
             ResultSet rs = ps.executeQuery();
 
-            while(rs.next()){
+            while (rs.next()) {
                 int bufferID = rs.getInt("buffer_id");
                 Date bufferDate = rs.getDate("buffer_date");
                 double bufferUpload = rs.getDouble("buffer_upload");
@@ -67,18 +69,18 @@ public class BufferDAO {
             }
 
 
-        }catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
         return buffer;
     }
 
-    public int addBuffer(Buffer buffer){
+    public int addBuffer(Buffer buffer) {
 
         int update = 0;
 
-        try{
+        try {
             Connection connection = DBUtil.getConn();
             PreparedStatement ps = connection.prepareStatement(addBufferQuery, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setDate(1, buffer.getBufferDate());
@@ -88,9 +90,11 @@ public class BufferDAO {
 
             update = getLastBuffer().getBufferId();
 
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
         return update;
     }
 }
+
+
