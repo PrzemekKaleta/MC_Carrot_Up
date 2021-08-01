@@ -7,7 +7,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+
 public class DBUtil {
+
     private static DataSource ds;
     public static Connection getConn() throws SQLException{
         return getInstance().getConnection();
@@ -16,6 +18,7 @@ public class DBUtil {
     private static DataSource getInstance(){
         if(ds==null){
             try{
+
                 Context ctx = new InitialContext();
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Context initContext = new InitialContext();
@@ -30,5 +33,6 @@ public class DBUtil {
         return ds;
     }
 
-
 }
+
+

@@ -21,14 +21,21 @@
 <h1>Welcome to Carrot</h1>
 
 <h2>Current Carrots:</h2>
+<table>
+    <tr>
+        <th>Number</th>
+        <th>Date</th>
+        <th>Upload</th>
+        <th>Carrots</th>
 <c:forEach items="${buffers}" var="buffer" varStatus="countStat">
-    ${countStat.count}<br>
-    ID: ${buffer.bufferId}
-    Date: ${buffer.bufferDate}
-    Upload: ${buffer.bufferUpload}
-    Carrots: ${buffer.bufferCarrots} <br><br>
+        <tr>
+            <td>${countStat.count}</td>
+            <td>${buffer.bufferDate}</td>
+            <td>${buffer.bufferUpload}</td>
+            <td>${buffer.bufferCarrots}</td>
+        </tr>
 </c:forEach>
-
+</table>
 
 
 <%@ include file="footer.jspf" %>
