@@ -25,7 +25,7 @@ public class KindDAO {
             ps.setDouble(3, kind.getKindRatio());
             ps.executeUpdate();
 
-
+            connection.close();
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -55,7 +55,7 @@ public class KindDAO {
             }
 
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -87,7 +87,7 @@ public class KindDAO {
                 kind.setKindId(kindID);
 
             }
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -113,6 +113,7 @@ public class KindDAO {
                 kind.setKindRatio(rs.getDouble("kind_ratio"));
 
             }
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }

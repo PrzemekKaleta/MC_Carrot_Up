@@ -22,7 +22,7 @@ public class TrainingDAO {
             ps.setString(3, training.getTrainingDescryption());
             ps.executeUpdate();
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -64,7 +64,7 @@ public class TrainingDAO {
             }
 
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -93,7 +93,7 @@ public class TrainingDAO {
                 training.setTrainingDescryption(trainingDescription);
 
             }
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }

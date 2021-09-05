@@ -37,6 +37,8 @@ public class BufferDAO {
 
             }
 
+            connection.close();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -67,7 +69,7 @@ public class BufferDAO {
                 buffer.setBufferUpload(bufferUpload);
                 buffer.setBufferCarrots(bufferCarrots);
             }
-
+            connection.close();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -89,7 +91,7 @@ public class BufferDAO {
             ps.executeUpdate();
 
             update = getLastBuffer().getBufferId();
-
+            connection.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }

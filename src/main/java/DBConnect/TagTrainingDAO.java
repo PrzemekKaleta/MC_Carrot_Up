@@ -16,7 +16,7 @@ public class TagTrainingDAO {
             ps.setInt(1, tagID);
             ps.setInt(2, trainingID);
             ps.executeUpdate();
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }

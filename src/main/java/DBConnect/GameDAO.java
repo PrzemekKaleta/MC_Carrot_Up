@@ -21,7 +21,7 @@ public class GameDAO {
             ps.setString(3, game.getGameDescription());
             ps.executeUpdate();
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }

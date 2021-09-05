@@ -32,7 +32,7 @@ public class TagDAO {
                 count = rs.getInt("Num");
             }
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -54,7 +54,7 @@ public class TagDAO {
 
             ps.executeUpdate();
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -83,7 +83,7 @@ public class TagDAO {
 
             ps2.executeUpdate();
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -109,7 +109,7 @@ public class TagDAO {
                 tag.setTagActive(rs.getBoolean("tag_active"));
 
             }
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -134,7 +134,7 @@ public class TagDAO {
                     chosenTags.add(new Tag(tagID,tagName,tagDescription,areActive));
                 }
 
-
+                connection.close();
             }catch (SQLException ex){
                 ex.printStackTrace();
             }
@@ -172,7 +172,7 @@ public class TagDAO {
                 tags.add(new Tag(tagID,tagName,tagDescription,tagActive));
             }
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }

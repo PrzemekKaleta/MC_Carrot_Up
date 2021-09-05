@@ -27,7 +27,7 @@ public class SuccessDAO {
                 count = rs.getInt("Num");
             }
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class SuccessDAO {
                 strDate = rs.getString("buffer_date");
             }
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
@@ -69,7 +69,7 @@ public class SuccessDAO {
             ps.setString(3, success.getSuccessDescription());
             ps.executeUpdate();
 
-
+            connection.close();
         }catch (SQLException ex){
             ex.printStackTrace();
         }
