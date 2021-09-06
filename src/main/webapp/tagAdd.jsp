@@ -10,10 +10,11 @@
 <html>
 <head>
     <title>Add new tag</title>
+    <script type="text/javascript" src="app.js"></script>
 </head>
     <body>
 
-    <%@ include file="header.jspf" %>
+   /*<%@ include file="header.jspf" %>*/
 
         <h1>Here you can add new TAG for training</h1>
 
@@ -41,7 +42,7 @@
         <a href="/tag?name=${tag.tagName}">${tag.tagName}</a>
     </c:forEach><br>
 
-    <%@ include file="footer.jspf" %>
+/*  <%@ include file="footer.jspf" %>*/
 
     </body>
 </html>
