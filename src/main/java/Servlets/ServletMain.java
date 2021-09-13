@@ -27,6 +27,8 @@ public class ServletMain extends HttpServlet {
 
         request.setAttribute("buffers", buffers);
 
+        System.out.println("Hi There Java");
+
         getServletContext().getRequestDispatcher("/my.jsp").forward(request,response);
 
     }
