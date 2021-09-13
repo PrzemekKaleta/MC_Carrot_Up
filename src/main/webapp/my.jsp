@@ -8,8 +8,11 @@
 <%--<%@ page isELIgnored="false" %>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%--    <%@ page contentType="application/javascript; charset=UTF-8"%>--%>
 
-<!DOCTYPE html>
+
+
+
 <html>
 <head>
     <title>My page</title>
@@ -18,6 +21,7 @@
 
     <%--<script type="text/javascript" src="app.js"></script>--%>
     <script src="js/app.js" type="text/javascript"></script>
+<%--        <jsp:include page="js/app.js">--%>
 
 </head>
 
@@ -25,14 +29,7 @@
 
 
 <h1>Welcome to Carrot</h1>
-<script>
 
-    console.log("HIMERA");
-    for(var i = 0; i < 5; i++){
-
-    }
-
-</script>
 <h2>Current Carrots:</h2>
 <table>
     <tr>

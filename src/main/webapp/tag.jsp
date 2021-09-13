@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>Tag page</title>
+    <script src="app.js" type="text/javascript"></script>
 </head>
     <body>
 
