@@ -1,8 +1,9 @@
-document.addEventListener("DOMContentLoaded", function(){
-
-    console.log("I will back");
-
-    var h1 = document.querySelector("h1");
-    h1.innerText = "T2";
-
+$(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
 });

@@ -1,0 +1,15 @@
+ul.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li.header{
+    float: left;
+}
+
+a.header{
+    display: block;
+    padding: 8px;
+    background-color: red;
+}

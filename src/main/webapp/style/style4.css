@@ -1,5 +1,13 @@
+body,
+html {
+    min-height: 100%;
+}
+
 body {
-    background-image: url("/images/tamanna-rumee-dIOgzCwHmOk-unsplash.jpg");
+
+    background-color: #f55726;
+    background-image: url("../images/tamanna-rumee-dIOgzCwHmOk-unsplash.jpg");
+    background-size: cover;
 }
 
 
@@ -53,3 +61,24 @@ table.redTable tfoot .links a{
     padding: 2px 8px;
     border-radius: 5px;
 }
+
+
+
+ul.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+li.header{
+    float: left;
+}
+
+a.header{
+    display: block;
+    padding: 8px;
+    background-color: black;
+}
+
+
+
