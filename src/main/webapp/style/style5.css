@@ -92,23 +92,31 @@ table.redTable thead th:first-child {
 }
 
 table.redTable tfoot {
-    font-size: 13px;
+    height: 40px;
+    font-size: 20px;
     font-weight: bold;
     color: #FFFFFF;
     background: #a43613;
 }
 table.redTable tfoot td {
-    font-size: 13px;
+
+    height: 40px;
+    font-size: 20px;
+    color: #FFFFFF;
+    background: #a43613;
 }
 table.redTable tfoot .links {
     text-align: right;
+
 }
 table.redTable tfoot .links a{
+    text-decoration: none;
     display: inline-block;
     background: #FFFFFF;
     color: #a43613;
     padding: 2px 8px;
     border-radius: 5px;
+
 }
 
 

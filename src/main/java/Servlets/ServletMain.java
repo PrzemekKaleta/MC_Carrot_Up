@@ -23,8 +23,50 @@ public class ServletMain extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         BufferDAO bufferDAO = new BufferDAO();
-        request.setAttribute("buffersQuantity",bufferDAO.getHowMayBuffers());
-        ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
+
+        int totalBuffers = bufferDAO.getHowMayBuffers();
+
+        int totalPages = totalBuffers / 10;
+        if(totalBuffers%10!=0){
+            totalPages++;
+        }
+
+        int endId = totalBuffers;
+        int startId = totalBuffers - 9;
+
+        request.setAttribute("totalPages", totalPages);
+        request.setAttribute("buffersQuantity",totalBuffers);
+
+
+        String tablePage = request.getParameter("tablePage");
+        if(null!=tablePage){
+
+            int tablePageNumber = Integer.parseInt(tablePage);
+            if(tablePageNumber > 0 && tablePageNumber <= totalPages){
+
+                endId = totalBuffers - (10 * (tablePageNumber - 1));
+                startId = totalBuffers - (10 * tablePageNumber) + 1;
+                request.setAttribute("tablePage", tablePage);
+
+            }
+
+        }else{
+            request.setAttribute("tablePage", 1);
+            request.setAttribute("noPrevious",true);
+        }
+
+        if(startId <= 1){
+            startId = 1;
+            request.setAttribute("noNext",true);
+        }
+
+        System.out.println("Start Id is " + startId + " , and End Id is " + endId);
+
+
+
+
+
+        ArrayList<Buffer> buffers = bufferDAO.getBuffersFromTo(startId,endId);
 
         request.setAttribute("buffers", buffers);
 

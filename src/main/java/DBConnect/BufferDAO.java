@@ -12,6 +12,7 @@ public class BufferDAO {
     private static String getFewLastsBuffersQuery = "SELECT * FROM buffer ORDER BY buffer_id DESC LIMIT ?;";
     private static String addBufferQuery = "INSERT INTO buffer (buffer_date, buffer_upload, buffer_carrots) VALUES (?, ?, ?);";
     private static String howManyBuffersQuery = "SELECT COUNT(*) as Num FROM buffer";
+    private static String getBuffersFromToQuery = "SELECT * FROM buffer WHERE buffer_id BETWEEN ? AND ? ORDER BY buffer_id DESC;";
 
     //"SELECT count(*) as Num FROM tag_training where tag_id = ?;";
 
@@ -27,6 +28,8 @@ public class BufferDAO {
                 howManyBuffers = rs.getInt("Num");
             }
 
+            connection.close();
+
         }catch(SQLException ex){
             ex.printStackTrace();
         }
@@ -35,6 +38,42 @@ public class BufferDAO {
         return howManyBuffers;
 
     }
+
+    public ArrayList<Buffer> getBuffersFromTo (int startId, int endId){
+
+        ArrayList<Buffer> buffers = new ArrayList<>();
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getBuffersFromToQuery);
+            ps.setInt(1, startId);
+            ps.setInt(2, endId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Buffer buffer = new Buffer();
+                int bufferID = rs.getInt("buffer_id");
+                Date bufferDate = rs.getDate("buffer_date");
+                double bufferUpload = rs.getDouble("buffer_upload");
+                double bufferCarrots = rs.getDouble("buffer_carrots");
+                buffer.setBufferId(bufferID);
+                buffer.setBufferDate(bufferDate);
+                buffer.setBufferUpload(bufferUpload);
+                buffer.setBufferCarrots(bufferCarrots);
+                buffers.add(buffer);
+
+            }
+
+
+            connection.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return buffers;
+    }
+
+
 
 
     public ArrayList<Buffer> getFewLastBuffers(int bufferQuantity) {
