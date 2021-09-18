@@ -59,16 +59,19 @@ body {
 table.redTable {
     border: 2px solid #a43613;
     background-color: #f5bba6;
-    width: 100%;
+    width: 80%;
     text-align: center;
     border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
 }
 table.redTable td, table.redTable th {
     border: 1px solid #AAAAAA;
     padding: 3px 2px;
 }
 table.redTable tbody td {
-    font-size: 13px;
+    font-size: 18px;
+    height: 35px;
 }
 table.redTable tr:nth-child(even) {
     background: #f5bba6;
@@ -77,7 +80,8 @@ table.redTable thead {
     background: #a43613;
 }
 table.redTable thead th {
-    font-size: 19px;
+    height: 40px;
+    font-size: 20px;
     font-weight: bold;
     color: #FFFFFF;
     text-align: center;

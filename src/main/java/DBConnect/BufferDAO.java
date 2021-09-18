@@ -11,6 +11,30 @@ public class BufferDAO {
     private static String getLastBufferQuery = "SELECT * FROM buffer ORDER BY buffer_id DESC LIMIT 1;";
     private static String getFewLastsBuffersQuery = "SELECT * FROM buffer ORDER BY buffer_id DESC LIMIT ?;";
     private static String addBufferQuery = "INSERT INTO buffer (buffer_date, buffer_upload, buffer_carrots) VALUES (?, ?, ?);";
+    private static String howManyBuffersQuery = "SELECT COUNT(*) as Num FROM buffer";
+
+    //"SELECT count(*) as Num FROM tag_training where tag_id = ?;";
+
+    public int getHowMayBuffers(){
+
+        int howManyBuffers = 0;
+
+        try {
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(howManyBuffersQuery);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                howManyBuffers = rs.getInt("Num");
+            }
+
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        System.out.println("How many buffers: " + howManyBuffers);
+        return howManyBuffers;
+
+    }
 
 
     public ArrayList<Buffer> getFewLastBuffers(int bufferQuantity) {

@@ -23,11 +23,12 @@ public class ServletMain extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         BufferDAO bufferDAO = new BufferDAO();
+        request.setAttribute("buffersQuantity",bufferDAO.getHowMayBuffers());
         ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
 
         request.setAttribute("buffers", buffers);
 
-        System.out.println("Hi There Java");
+        System.out.println(bufferDAO.getHowMayBuffers());
 
         getServletContext().getRequestDispatcher("/my.jsp").forward(request,response);
 
