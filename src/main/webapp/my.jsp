@@ -17,7 +17,7 @@
     <title>My page</title>
     <link rel="stylesheet" type="text/css" href="style/style5.css">
     <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/app3.js" type="text/javascript"></script>
+    <script src="js/app4.js" type="text/javascript"></script>
 
 </head>
 
@@ -57,23 +57,33 @@
     </thead>
     <tbody>
 <c:forEach items="${buffers}" var="buffer" varStatus="countStat">
-        <tr>
-
+        <tr class="zoominf">
             <td>${countStat.count + (tablePage - 1) * 10}</td>
             <td>${buffer.bufferDate}</td>
             <td>${buffer.bufferUpload}</td>
             <td>${buffer.bufferCarrots}</td>
+        </tr>
+        <tr class="hidemy">
+            <td colspan="4">
+                <div>This is temporary text before doing wright code</div>
+            </td>
         </tr>
 </c:forEach>
     </tbody>
     <tfoot>
     <td colspan="4" class="links">
         <div>
-            <a href="#">&laquo;</a>
+            <c:if test="${tablePage != 1}">
+                <a href="/?tablePage=${tablePage - 1}">&laquo;</a>
+            </c:if>
+
             <c:forEach begin="1" end="${totalPages}" var="pageStep">
-                <a href="/?tablePage=${pageStep}">${pageStep}</a>
+                <a href="/?tablePage=${pageStep}" <c:if test="${pageStep == tablePage}">class="active"</c:if> >${pageStep}</a>
             </c:forEach>
-            <a href="#">&raquo;</a>
+
+            <c:if test="${tablePage != totalPages}">
+                <a href="/?tablePage=${tablePage + 1}">&raquo;</a>
+            </c:if>
         </div>
     </td>
     </tfoot>

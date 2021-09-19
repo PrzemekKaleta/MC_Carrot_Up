@@ -17,5 +17,18 @@ $(function () {
 
     });
 
+    var trHidden = $(document).find('tr.hidemy');
+    trHidden.hide();
+
+    var trZoomInf = $(document).find('tr.zoominf');
+
+    trZoomInf.on('click', function(){
+        $(this).next().show();
+    });
+
+    trHidden.on('click', function(){
+        $(this).hide();
+    });
+
 
 });

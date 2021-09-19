@@ -8,13 +8,18 @@ body {
     background-color: #f55726;
     background-image: url("../images/tamanna-rumee-dIOgzCwHmOk-unsplash.jpg");
     background-size: cover;
+
 }
+
+
+
 
 
 table.redTable {
     border: 2px solid #a43613;
     background-color: #f5bba6;
     width: 100%;
+    min-height: 80%;
     text-align: center;
     border-collapse: collapse;
 }
@@ -22,11 +27,13 @@ table.redTable td, table.redTable th {
     border: 1px solid #AAAAAA;
     padding: 3px 2px;
 }
+
+
 table.redTable tbody td {
     font-size: 13px;
 }
 table.redTable tr:nth-child(even) {
-    background: #f5bba6;
+    background: #f51edf;
 }
 table.redTable thead {
     background: #a43613;
@@ -62,7 +69,9 @@ table.redTable tfoot .links a{
     border-radius: 5px;
 }
 
-
+table.redTable tbody .hidemy {
+    color: red;
+}
 
 ul.header{
     position: fixed;
@@ -79,6 +88,8 @@ a.header{
     padding: 8px;
     background-color: black;
 }
+
+/*something added now*/
 
 
 

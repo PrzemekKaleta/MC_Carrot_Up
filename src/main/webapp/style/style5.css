@@ -27,7 +27,7 @@
 
 
 .focus {
-    background-color: #c34721;
+    background-color: #b45e38;
     position: sticky;
     top: 0;
 }
@@ -54,7 +54,6 @@ body {
     background-image: url("../images/tamanna-rumee-dIOgzCwHmOk-unsplash.jpg");
     background-size: cover;
 }
-
 
 table.redTable {
     border: 2px solid #a43613;
@@ -109,6 +108,9 @@ table.redTable tfoot .links {
     text-align: right;
 
 }
+
+
+
 table.redTable tfoot .links a{
     text-decoration: none;
     display: inline-block;
@@ -118,6 +120,16 @@ table.redTable tfoot .links a{
     border-radius: 5px;
 
 }
+
+table.redTable tfoot .links a.active{
+     background: black;
+ }
+
+
+table.redTable tbody tr.hidemy{
+    background: #b45e38;
+}
+
 
 
 
