@@ -39,6 +39,12 @@
     <input type="number" min="1" max="50">
     <input type="submit" value="">
 </form>
+
+<div>
+
+
+
+</div>
 <table class="redTable">
     <thead>
     <tr>
@@ -53,7 +59,7 @@
 <c:forEach items="${buffers}" var="buffer" varStatus="countStat">
         <tr>
 
-            <td>${countStat.count}</td>
+            <td>${countStat.count + (tablePage - 1) * 10}</td>
             <td>${buffer.bufferDate}</td>
             <td>${buffer.bufferUpload}</td>
             <td>${buffer.bufferCarrots}</td>
@@ -63,9 +69,10 @@
     <tfoot>
     <td colspan="4" class="links">
         <div>
-
-            <a href="#">&laquo;</a> <a class="active" href="#">1</a>
-            <a href="#">2</a> <a href="#">3</a> <a href="#">4</a>
+            <a href="#">&laquo;</a>
+            <c:forEach begin="1" end="${totalPages}" var="pageStep">
+                <a href="/?tablePage=${pageStep}">${pageStep}</a>
+            </c:forEach>
             <a href="#">&raquo;</a>
         </div>
     </td>
