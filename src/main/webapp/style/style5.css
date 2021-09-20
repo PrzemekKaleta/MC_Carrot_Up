@@ -32,9 +32,17 @@
     top: 0;
 }
 
+.chosen {
+
+}
+
+
 .active {
     background-color: black;
+    color: white;
 }
+
+
 
 header{
     width: 100%;

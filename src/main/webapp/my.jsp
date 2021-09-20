@@ -78,7 +78,7 @@
             </c:if>
 
             <c:forEach begin="1" end="${totalPages}" var="pageStep">
-                <a href="/?tablePage=${pageStep}" <c:if test="${pageStep == tablePage}">class="active"</c:if> >${pageStep}</a>
+                <a href="/?tablePage=${pageStep}" <c:if test="${pageStep == tablePage}">class="active chosen"</c:if> >${pageStep}</a>
             </c:forEach>
 
             <c:if test="${tablePage != totalPages}">
