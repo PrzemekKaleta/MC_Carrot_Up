@@ -63,7 +63,7 @@
             <td>${buffer.bufferUpload}</td>
             <td>${buffer.bufferCarrots}</td>
         </tr>
-        <tr class="hidemy">
+        <tr class="hidemy hide">
             <td colspan="4">
                 <div>This is temporary text before doing wright code</div>
             </td>

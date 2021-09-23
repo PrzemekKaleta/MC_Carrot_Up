@@ -17,71 +17,24 @@ $(function () {
 
     });
 
-    var trHidden = $(document).find('tr.hidemy');
-    trHidden.hide();
+    var trZoomInf = $("tr.zoominf");
 
-/*    $('tr.zoominf').on('click', function () {
-        $(this).toggleClass('chosen');
-    });*/
+    var trHideMy = $("tr.hidemy");
 
-    var trZoomInf = document.querySelectorAll("tr .zoominf");
+    console.log(trZoomInf);
+    console.log(trHideMy);
 
-    for(var i=0; i < trZoomInf.length; i++){
-        console.log(trZoomInf[i]);
-            }
+    trZoomInf.on("click", function () {
 
+        $(this).next().toggleClass("hide");
 
-
-    for(var i=0; i < trZoomInf.length; i++){
-        trZoomInf[i].addEventListener("click", function () {
-            this.addClass("koci");
-            // this.toggleClass('chosen');
-        });
-    }
-
-
-/*    var trZoomInf = $(document).find('tr.zoominf');
-
-
-    trZoomInf.click(function() {
-        $( this ).toggleClass( "highlight" );
     });
 
-    trZoomInf.on('mouseover', function () {
-        $(this).addClass('active');
-    });
-    trZoomInf.on('mouseleave', function () {
-        $(this).removeClass('active');
+    trHideMy.on("click", function () {
+        $(this).toggleClass("hide");
     });
 
 
-    trZoomInf.on('click', function() {
-
-        $(this).toggleClass('chosen');*/
-
-/*        if($(this).hasClass('chosen')){
-            $(this).removeClass('chosen');
-
-        }else{
-            $(this).addClass('chosen');
-        }*/
-
-
-
-/*        if (!$(this).hasClass('chosen')) {
-            $(this).addClass('chosen');
-            $(this).next().show();
-
-        } else {
-            $(this).removeClass('chosen');
-            $(this).next().hide();
-
-        }*/
-
-
-/*    trHidden.on('click', function(){
-        $(this).hide();
-    });*/
 
     var pagesTable = $(document).find('.links a');
     pagesTable.on('mouseover', function(){
