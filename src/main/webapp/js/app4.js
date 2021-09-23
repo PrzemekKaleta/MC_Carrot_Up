@@ -21,8 +21,6 @@ $(function () {
 
     var trHideMy = $("tr.hidemy");
 
-    console.log(trZoomInf);
-    console.log(trHideMy);
 
     trZoomInf.on("click", function () {
 
@@ -32,6 +30,22 @@ $(function () {
 
     trHideMy.on("click", function () {
         $(this).toggleClass("hide");
+    });
+
+    trZoomInf.on("mouseover", function () {
+        $(this).addClass("active");
+    });
+
+    trZoomInf.on("mouseleave", function () {
+        $(this).removeClass("active");
+    });
+
+    trHideMy.on("mouseover", function () {
+        $(this).addClass("active");
+    });
+
+    trHideMy.on("mouseleave", function () {
+        $(this).removeClass("active");
     });
 
 
