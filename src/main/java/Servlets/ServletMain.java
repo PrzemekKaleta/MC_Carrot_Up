@@ -2,6 +2,7 @@ package Servlets;
 
 import BasisClass.Buffer;
 import DBConnect.BufferDAO;
+import ExtraClass.InfoFounder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,8 +61,9 @@ public class ServletMain extends HttpServlet {
             request.setAttribute("noNext",true);
         }
 
-        System.out.println("Start Id is " + startId + " , and End Id is " + endId);
 
+        InfoFounder infoFounder = new InfoFounder();
+        infoFounder.giveMoreInformation(14);
 
 
 
