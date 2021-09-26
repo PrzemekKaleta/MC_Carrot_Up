@@ -3,6 +3,7 @@ package Servlets;
 import BasisClass.Buffer;
 import BasisClass.BufferFull;
 import DBConnect.BufferDAO;
+import DBConnect.GameDAO;
 import ExtraClass.InfoFounder;
 
 import javax.servlet.ServletException;
@@ -25,6 +26,12 @@ public class ServletMain extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         BufferDAO bufferDAO = new BufferDAO();
+
+        GameDAO gameDAO = new GameDAO();
+
+        double sumOfGamesHours = gameDAO.getSumOfGamesHours();
+        System.out.println(sumOfGamesHours);
+        request.setAttribute("sumOfGamesHours", sumOfGamesHours);
 
         int totalBuffers = bufferDAO.getHowMayBuffers();
 

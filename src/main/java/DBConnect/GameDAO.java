@@ -11,7 +11,29 @@ public class GameDAO {
 
     protected static String addGameQuery = "INSERT INTO game (buffer_id, game_hours, game_description) VALUES (?, ?, ?);";
     protected static String findGameByBufferIdQuery = "SELECT * FROM game WHERE buffer_id = ?;";
+    protected static String getSumOfGamesHoursQuery = "SELECT SUM(game_hours) as xyz FROM game;";
 
+    public double getSumOfGamesHours(){
+
+        double sumOfGamesHours = 0.0;
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getSumOfGamesHoursQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                sumOfGamesHours = rs.getDouble("xyz");
+            }
+
+            connection.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return sumOfGamesHours;
+
+    }
 
     public void addGame(Game game){
 

@@ -33,10 +33,17 @@
 
 <h2>Lastest progress:</h2>
 
-<p>${buffersQuantity} buffers you have</p>
-
-
+<div>
+    <div>
+        <div class="counter" data-target="${buffersQuantity}">0</div>
+        <h3>Buffers</h3>
+    </div>
+    <div>
+        <div class="counter" data-target="${sumOfGamesHours}">0</div>
+        <h3>Games</h3>
+    </div>
 </div>
+
 <table class="redTable">
     <thead>
     <tr>
