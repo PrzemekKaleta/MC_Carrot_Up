@@ -58,7 +58,7 @@ public class InfoFounder {
 
                 Tag tag = iterator.next();
 
-                sb.append(tag.getTagName() + " ");
+                sb.append("<a href='/tag?name=" + tag.getTagName() + "'>" + tag.getTagName() + "</a> ");
 
 
             }

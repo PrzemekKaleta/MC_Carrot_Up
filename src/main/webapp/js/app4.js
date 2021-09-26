@@ -48,6 +48,15 @@ $(function () {
         $(this).removeClass("active");
     });
 
+    var linksFromAdd = $(document).find('.hidemy a');
+    linksFromAdd.on('mouseover', function () {
+       $(this).addClass('active2');
+    });
+
+    linksFromAdd.on('mouseleave', function () {
+        $(this).removeClass('active2');
+    });
+
 
 
     var pagesTable = $(document).find('.links a');

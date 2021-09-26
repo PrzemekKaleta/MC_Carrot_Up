@@ -45,6 +45,10 @@
     color: white;
 }
 
+.active2 {
+    font-weight: bold;
+}
+
 
 
 header{
@@ -120,7 +124,10 @@ table.redTable tfoot .links {
 
 }
 
-
+table.redTable tbody a{
+    text-decoration: none;
+    color: white;
+}
 
 table.redTable tfoot .links a{
     text-decoration: none;
