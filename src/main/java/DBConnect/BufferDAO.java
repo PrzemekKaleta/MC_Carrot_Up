@@ -36,12 +36,10 @@ public class BufferDAO {
             ex.printStackTrace();
         }
 
-        System.out.println("How many buffers: " + howManyBuffers);
         return howManyBuffers;
 
     }
 
-    //START
 
     public ArrayList<BufferFull> getBuffersFullFromTo (int startId, int endId){
 
@@ -79,7 +77,6 @@ public class BufferDAO {
         return buffersFull;
     }
 
-    //END
 
     public ArrayList<Buffer> getBuffersFromTo (int startId, int endId){
 

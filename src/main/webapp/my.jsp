@@ -35,14 +35,6 @@
 
 <p>${buffersQuantity} buffers you have</p>
 
-<form>
-    <input type="number" min="1" max="50">
-    <input type="submit" value="">
-</form>
-
-<div>
-
-
 
 </div>
 <table class="redTable">

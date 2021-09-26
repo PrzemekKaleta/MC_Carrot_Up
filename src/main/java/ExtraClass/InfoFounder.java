@@ -1,12 +1,7 @@
 package ExtraClass;
 
-import BasisClass.Game;
-import BasisClass.Tag;
-import BasisClass.Training;
-import DBConnect.GameDAO;
-import DBConnect.SuccessDAO;
-import DBConnect.TagDAO;
-import DBConnect.TrainingDAO;
+import BasisClass.*;
+import DBConnect.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +12,7 @@ public class InfoFounder {
     TrainingDAO trainingDAO = new TrainingDAO();
     TagDAO tagDAO = new TagDAO();
     SuccessDAO successDAO = new SuccessDAO();
-
+    KindDAO kindDAO = new KindDAO();
 
 
 
@@ -67,8 +62,27 @@ public class InfoFounder {
 
         }
 
+        Success success = successDAO.findSuccesByBufferId(bufferId);
 
-        return "FOO boo";
+        if(null != success.getSuccessDescription()){
+
+            StringBuilder sb = new StringBuilder();
+
+            sb.append("SUCCESS ");
+
+            Kind kind = kindDAO.getKindById(success.getKindID());
+
+            sb.append("<a href='/kind?name=" + kind.getKindName() + "'>" + kind.getKindName() + "</a>");
+
+            sb.append(" description: ");
+            sb.append(success.getSuccessDescription());
+
+            return sb.toString();
+        }
+
+
+
+        return "Not found";
 
     }
 

@@ -62,16 +62,6 @@ public class ServletMain extends HttpServlet {
             request.setAttribute("noNext",true);
         }
 
-        //TODO
-        InfoFounder infoFounder = new InfoFounder();
-
-        for(int i = 44; i < 46 ; i++) {
-            System.out.println(infoFounder.giveMoreInformation(i));
-
-        }
-
-
-
 
         ArrayList<BufferFull> buffers = bufferDAO.getBuffersFullFromTo(startId,endId);
 
