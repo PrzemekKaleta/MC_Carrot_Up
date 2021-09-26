@@ -1,7 +1,9 @@
 package DBConnect;
 
 import BasisClass.Buffer;
+import BasisClass.BufferFull;
 import BasisClass.Kind;
+import ExtraClass.InfoFounder;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -38,6 +40,46 @@ public class BufferDAO {
         return howManyBuffers;
 
     }
+
+    //START
+
+    public ArrayList<BufferFull> getBuffersFullFromTo (int startId, int endId){
+
+        ArrayList<BufferFull> buffersFull = new ArrayList<>();
+        InfoFounder infoFounder = new InfoFounder();
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getBuffersFromToQuery);
+            ps.setInt(1, startId);
+            ps.setInt(2, endId);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                BufferFull bufferFull = new BufferFull();
+                int bufferID = rs.getInt("buffer_id");
+                Date bufferDate = rs.getDate("buffer_date");
+                double bufferUpload = rs.getDouble("buffer_upload");
+                double bufferCarrots = rs.getDouble("buffer_carrots");
+                bufferFull.setBufferId(bufferID);
+                bufferFull.setBufferDate(bufferDate);
+                bufferFull.setBufferUpload(bufferUpload);
+                bufferFull.setBufferCarrots(bufferCarrots);
+                bufferFull.setMoreInformation(infoFounder.giveMoreInformation(bufferID));
+                buffersFull.add(bufferFull);
+
+            }
+
+
+            connection.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return buffersFull;
+    }
+
+    //END
 
     public ArrayList<Buffer> getBuffersFromTo (int startId, int endId){
 

@@ -27,7 +27,7 @@ public class InfoFounder {
 
         if(null != game.getGameDescription()){
 
-            return "Game description: " + game.getGameDescription();
+            return "GAME description: " + game.getGameDescription();
 
 
         }
@@ -40,17 +40,25 @@ public class InfoFounder {
 
             StringBuilder sb = new StringBuilder();
 
-            sb.append("Training description: ");
+            sb.append("TRAINING description: ");
             sb.append(training.getTrainingDescryption());
 
+            int tagsSize = tags.size();
 
             Iterator<Tag> iterator = tags.iterator();
+
+            if(tagsSize == 1){
+                sb.append(" Tag: ");
+            }else if(tagsSize > 1){
+                sb.append(" Tags: ");
+            }
+
 
             while(iterator.hasNext()){
 
                 Tag tag = iterator.next();
 
-                sb.append(tag.getTagName());
+                sb.append(tag.getTagName() + " ");
 
 
             }
@@ -60,10 +68,7 @@ public class InfoFounder {
         }
 
 
-
-
-
-        return "foo";
+        return "FOO boo";
 
     }
 

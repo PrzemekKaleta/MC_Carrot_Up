@@ -17,7 +17,7 @@ public class TagDAO {
     private static String getActivityTagByNameQuery = "SELECT tag_active FROM tag WHERE tag_name = ?;";
     private static String setActivityTagByNameQuery = "UPDATE tag SET tag_active = ? WHERE tag_name = ?;";
     private static String countTagByIdQuery = "SELECT count(*) as Num FROM tag_training where tag_id = ?;";
-    private static String getAllTagsByTrainingIdQuery = "SELECT * FROM tag JOIN tag_training ON tag.tag_id = tag_training.tag_id WHERE tag.tag_id = ?;";
+    private static String getAllTagsByTrainingIdQuery = "SELECT * FROM tag JOIN tag_training ON tag.tag_id = tag_training.tag_id WHERE tag_training.training_id = ?;";
 
 
     public ArrayList<Tag> getAllTagsByTrainingId (int trainingId){

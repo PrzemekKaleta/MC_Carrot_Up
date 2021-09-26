@@ -1,6 +1,7 @@
 package Servlets;
 
 import BasisClass.Buffer;
+import BasisClass.BufferFull;
 import DBConnect.BufferDAO;
 import ExtraClass.InfoFounder;
 
@@ -72,7 +73,7 @@ public class ServletMain extends HttpServlet {
 
 
 
-        ArrayList<Buffer> buffers = bufferDAO.getBuffersFromTo(startId,endId);
+        ArrayList<BufferFull> buffers = bufferDAO.getBuffersFullFromTo(startId,endId);
 
         request.setAttribute("buffers", buffers);
 

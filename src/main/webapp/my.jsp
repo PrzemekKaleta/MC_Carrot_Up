@@ -65,7 +65,7 @@
         </tr>
         <tr class="hidemy hide">
             <td colspan="4">
-                <div>This is temporary text before doing wright code</div>
+                <div>${buffer.moreInformation}</div>
             </td>
         </tr>
 </c:forEach>
