@@ -61,9 +61,13 @@ public class ServletMain extends HttpServlet {
             request.setAttribute("noNext",true);
         }
 
-
+        //TODO
         InfoFounder infoFounder = new InfoFounder();
-        infoFounder.giveMoreInformation(14);
+
+        for(int i = 44; i < 46 ; i++) {
+            System.out.println(infoFounder.giveMoreInformation(i));
+
+        }
 
 
 
@@ -71,8 +75,6 @@ public class ServletMain extends HttpServlet {
         ArrayList<Buffer> buffers = bufferDAO.getBuffersFromTo(startId,endId);
 
         request.setAttribute("buffers", buffers);
-
-        System.out.println(bufferDAO.getHowMayBuffers());
 
         getServletContext().getRequestDispatcher("/my.jsp").forward(request,response);
 

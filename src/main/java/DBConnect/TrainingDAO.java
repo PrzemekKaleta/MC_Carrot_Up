@@ -11,6 +11,7 @@ public class TrainingDAO {
     private static String addTrainingQuerry = "INSERT INTO training (buffer_id, training_hours, training_description) VALUES (?, ?, ?);";
     private static String getLastTrainingQuery = "SELECT * FROM training ORDER BY training_id DESC LIMIT 1;";
     private static String getLastFullTrainingQuery = "SELECT * FROM training JOIN buffer ON training.buffer_id = buffer.buffer_id ORDER BY training_id DESC LIMIT 1;";
+    private static String findTrainingByBufferIdQuery = "SELECT * FROM training WHERE buffer_id = ?;";
 
     public void addTraining(Training training){
 
@@ -100,4 +101,34 @@ public class TrainingDAO {
 
         return training;
     }
+
+
+    public Training findTrainingByBufferId(int bufferId){
+
+        Training training = new Training();
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(findTrainingByBufferIdQuery);
+            ps.setInt(1, bufferId);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                training.setTrainingDescryption(rs.getString("training_description"));
+                training.setTrainingHours(rs.getDouble("training_hours"));
+                training.setTrainingId(rs.getInt("training_id"));
+                training.setBufferId(rs.getInt("buffer_id"));
+            }
+
+            connection.close();
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return training;
+
+    }
+
 }

@@ -17,6 +17,43 @@ public class TagDAO {
     private static String getActivityTagByNameQuery = "SELECT tag_active FROM tag WHERE tag_name = ?;";
     private static String setActivityTagByNameQuery = "UPDATE tag SET tag_active = ? WHERE tag_name = ?;";
     private static String countTagByIdQuery = "SELECT count(*) as Num FROM tag_training where tag_id = ?;";
+    private static String getAllTagsByTrainingIdQuery = "SELECT * FROM tag JOIN tag_training ON tag.tag_id = tag_training.tag_id WHERE tag.tag_id = ?;";
+
+
+    public ArrayList<Tag> getAllTagsByTrainingId (int trainingId){
+
+        ArrayList<Tag> tags = new ArrayList<>();
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getAllTagsByTrainingIdQuery);
+            ps.setInt(1, trainingId);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+
+                Tag tag = new Tag();
+                tag.setTagActive(rs.getBoolean("tag_active"));
+                tag.setTagDescription(rs.getString("tag_description"));
+                tag.setTagName(rs.getString("tag_name"));
+                tag.setTagId(rs.getInt("tag_id"));
+
+                tags.add(tag);
+
+            }
+
+            connection.close();
+
+
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return tags;
+
+    }
+
+
 
     public int countTagById(int tagId){
 
