@@ -15,8 +15,32 @@ public class BufferDAO {
     private static String addBufferQuery = "INSERT INTO buffer (buffer_date, buffer_upload, buffer_carrots) VALUES (?, ?, ?);";
     private static String howManyBuffersQuery = "SELECT COUNT(*) as Num FROM buffer";
     private static String getBuffersFromToQuery = "SELECT * FROM buffer WHERE buffer_id BETWEEN ? AND ? ORDER BY buffer_id DESC;";
+    private static String getCurrentCarrotsQuery = "SELECT buffer_carrots as bc FROM buffer ORDER BY buffer_id DESC LIMIT 1;";
 
     //"SELECT count(*) as Num FROM tag_training where tag_id = ?;";
+
+    public double getCurrentCarrots(){
+
+        double currentCarrots = 0.0;
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getCurrentCarrotsQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                currentCarrots = rs.getDouble("bc");
+            }
+
+            connection.close();
+
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return currentCarrots;
+
+    }
 
     public int getHowMayBuffers(){
 

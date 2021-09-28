@@ -13,6 +13,29 @@ public class SuccessDAO {
     private static String findDateOfLastUseOfKindQuery = "SELECT buffer_date FROM buffer JOIN success ON buffer.buffer_id = success.buffer_id WHERE kind_id = ? ORDER BY buffer_date DESC LIMIT 1;";
     private static String countAllRepeatOfKindByKindIdQuery = "SELECT count(1) as Num FROM success WHERE kind_id = ?;";
     private static String findSuccesByBufferIdQuery = "SELECT * FROM success WHERE buffer_id = ?;";
+    private static String countAllSuccessQuery = "SELECT COUNT(*) AS cas FROM success;";
+
+    public int countAllSuccess(){
+
+        int allSuccess = 0;
+
+        try{
+
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(countAllSuccessQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                allSuccess = rs.getInt("cas");
+            }
+
+            connection.close();
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return allSuccess;
+    }
 
 
     public Success findSuccesByBufferId(int bufferId){

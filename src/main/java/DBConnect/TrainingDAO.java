@@ -8,16 +8,60 @@ import java.sql.*;
 
 public class TrainingDAO {
 
-    private static String addTrainingQuerry = "INSERT INTO training (buffer_id, training_hours, training_description) VALUES (?, ?, ?);";
+    private static String addTrainingQuery = "INSERT INTO training (buffer_id, training_hours, training_description) VALUES (?, ?, ?);";
     private static String getLastTrainingQuery = "SELECT * FROM training ORDER BY training_id DESC LIMIT 1;";
     private static String getLastFullTrainingQuery = "SELECT * FROM training JOIN buffer ON training.buffer_id = buffer.buffer_id ORDER BY training_id DESC LIMIT 1;";
     private static String findTrainingByBufferIdQuery = "SELECT * FROM training WHERE buffer_id = ?;";
+    private static String getTotalTrainingHoursQuery = "SELECT SUM(training_hours) AS th FROM training;";
+    private static String getMaximumLearningHoursOfOneDayQuery = "SELECT MAX(mh)AS mhod FROM (SELECT SUM(training_hours) AS mh FROM training JOIN buffer ON training.buffer_id = buffer.buffer_id GROUP BY buffer.buffer_date) AS bd;";
+
+    public double getMaximumLearningHoursOfOneDay(){
+
+        double maximumLearningHours = 0;
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getMaximumLearningHoursOfOneDayQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                maximumLearningHours = rs.getDouble("mhod");
+            }
+            connection.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return maximumLearningHours;
+
+    }
+
+    public double getTotalTrainingHours(){
+
+        double trainingHours = 0;
+
+        try{
+            Connection connection = DBUtil.getConn();
+            PreparedStatement ps = connection.prepareStatement(getTotalTrainingHoursQuery);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                trainingHours = rs.getDouble("th");
+            }
+            connection.close();
+        }catch (SQLException ex){
+            ex.printStackTrace();
+        }
+
+        return trainingHours;
+
+    }
 
     public void addTraining(Training training){
 
         try{
             Connection connection = DBUtil.getConn();
-            PreparedStatement ps = connection.prepareStatement(addTrainingQuerry);
+            PreparedStatement ps = connection.prepareStatement(addTrainingQuery);
             ps.setInt(1, training.getBufferId());
             ps.setDouble(2, training.getTrainingHours());
             ps.setString(3, training.getTrainingDescryption());

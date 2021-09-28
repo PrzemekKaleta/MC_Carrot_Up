@@ -4,6 +4,8 @@ import BasisClass.Buffer;
 import BasisClass.BufferFull;
 import DBConnect.BufferDAO;
 import DBConnect.GameDAO;
+import DBConnect.SuccessDAO;
+import DBConnect.TrainingDAO;
 import ExtraClass.InfoFounder;
 
 import javax.servlet.ServletException;
@@ -29,9 +31,24 @@ public class ServletMain extends HttpServlet {
 
         GameDAO gameDAO = new GameDAO();
 
+        double currentCarrots = bufferDAO.getCurrentCarrots();
+        request.setAttribute("currentCarrots", currentCarrots);
+
         double sumOfGamesHours = gameDAO.getSumOfGamesHours();
-        System.out.println(sumOfGamesHours);
         request.setAttribute("sumOfGamesHours", sumOfGamesHours);
+
+        TrainingDAO trainingDAO = new TrainingDAO();
+        double sumOfTrainingHours = trainingDAO.getTotalTrainingHours();
+        request.setAttribute("sumOfTrainingHours", sumOfTrainingHours);
+
+        double maxLearningHours = trainingDAO.getMaximumLearningHoursOfOneDay();
+        request.setAttribute("maxLearningHours", maxLearningHours);
+
+        SuccessDAO successDAO = new SuccessDAO();
+        int allSuccess = successDAO.countAllSuccess();
+        request.setAttribute("allSuccess", allSuccess);
+
+
 
         int totalBuffers = bufferDAO.getHowMayBuffers();
 

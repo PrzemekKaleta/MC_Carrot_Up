@@ -33,14 +33,28 @@
 
 <h2>Lastest progress:</h2>
 
+
+
 <div>
     <div>
-        <div class="counter" data-target="${buffersQuantity}">0</div>
-        <h3>Buffers</h3>
+        <div class="counter" data-target="${currentCarrots}">0</div>
+        <h3>Current carrots</h3>
     </div>
     <div>
         <div class="counter" data-target="${sumOfGamesHours}">0</div>
-        <h3>Games</h3>
+        <h3>Play hours</h3>
+    </div>
+    <div>
+        <div class="counter" data-target="${sumOfTrainingHours}">0</div>
+        <h3>Lerning hours</h3>
+    </div>
+    <div>
+        <div class="counter" data-target="${allSuccess}">0</div>
+        <h3>All successes</h3>
+    </div>
+    <div>
+        <div class="counter" data-target="${maxLearningHours}">0</div>
+        <h3>Max learning hours of one day</h3>
     </div>
 </div>
 
