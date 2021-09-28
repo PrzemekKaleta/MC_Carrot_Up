@@ -16,6 +16,10 @@
 <head>
     <title>My page</title>
     <link rel="stylesheet" type="text/css" href="style/style5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <script src="js/jquery-3.6.0.js"></script>
     <script src="js/app4.js" type="text/javascript"></script>
 
@@ -27,36 +31,39 @@
 
 <%@ include file="header.jspf" %>
 
+<h2>Current Status:</h2>
 
-<h2>Current Carrots:</h2>
-
-
-<h2>Lastest progress:</h2>
-
-
-
-<div>
-    <div>
-        <div class="counter" data-target="${currentCarrots}">0</div>
-        <h3>Current carrots</h3>
+<section class="counters">
+    <div class="container">
+        <div>
+            <i class="fas fa-carrot fa-4x"></i>
+            <div class="counterFraction" data-target="${currentCarrots}">0</div>
+            <h3>Current carrots</h3>
+        </div>
+        <div>
+            <i class="fas fa-gamepad fa-4x"></i>
+            <div class="counterFraction" data-target="${sumOfGamesHours}">0</div>
+            <h3>Play hours</h3>
+        </div>
+        <div>
+            <i class="fas fa-school fa-4x"></i>
+            <div class="counterFraction" data-target="${sumOfTrainingHours}">0</div>
+            <h3>Lerning hours</h3>
+        </div>
+        <div>
+            <i class="fas fa-tasks fa-4x"></i>
+            <div class="counterInteger" data-target="${allSuccess}">0</div>
+            <h3>All successes</h3>
+        </div>
+        <div>
+            <i class="fas fa-hourglass-half fa-4x"></i>
+            <div class="counterFraction" data-target="${maxLearningHours}">0</div>
+            <h3>Max learning hours of one day</h3>
+        </div>
     </div>
-    <div>
-        <div class="counter" data-target="${sumOfGamesHours}">0</div>
-        <h3>Play hours</h3>
-    </div>
-    <div>
-        <div class="counter" data-target="${sumOfTrainingHours}">0</div>
-        <h3>Lerning hours</h3>
-    </div>
-    <div>
-        <div class="counter" data-target="${allSuccess}">0</div>
-        <h3>All successes</h3>
-    </div>
-    <div>
-        <div class="counter" data-target="${maxLearningHours}">0</div>
-        <h3>Max learning hours of one day</h3>
-    </div>
-</div>
+</section>
+
+<h2>Progress:</h2>
 
 <table class="redTable">
     <thead>
@@ -107,14 +114,7 @@
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
+
 
 <%@ include file="footer.jspf" %>
 

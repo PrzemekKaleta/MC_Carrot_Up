@@ -71,12 +71,12 @@ $(function () {
         }
     });
 
-    var counters = document.querySelectorAll(".counter");
+    var countersFraction = document.querySelectorAll(".counterFraction");
     var speed = 200;
 
 
 
-    counters.forEach(counter => {
+    countersFraction.forEach(counter => {
         var updateCount = () => {
             var target = +counter.getAttribute('data-target');
 
@@ -86,7 +86,30 @@ $(function () {
 
             if(count < target){
                 counter.innerText = Math.ceil((count + inc)*4)/4;
-                setTimeout(updateCount, 5);
+                setTimeout(updateCount, 10);
+            }else{
+                count.innerText = target;
+            }
+        }
+        updateCount();
+    });
+
+    var countersInteger = document.querySelectorAll(".counterInteger");
+
+
+
+
+    countersInteger.forEach(counter => {
+        var updateCount = () => {
+            var target = +counter.getAttribute('data-target');
+
+            var count = +counter.innerText;
+
+            var inc = target / speed;
+
+            if(count < target){
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 100);
             }else{
                 count.innerText = target;
             }
