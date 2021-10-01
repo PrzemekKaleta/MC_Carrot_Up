@@ -31,6 +31,12 @@
 
 <%@ include file="header.jspf" %>
 
+<h2>Rures:</h2>
+<div class="information" id="rules">
+    <p>One carrot is an posibility to one hour of playing video games. You play - you eat it. In order to get some carrots, you have to work hard by learning or achieving success. You can combine each saved learning time into tags to later verify what you have learned the most and the least.</p>
+    <p>Each hour of learning is only a fraction of a carrot, but you decide for yourself what can be a success and how valid it is. Completed project? CV sent? How about getting a job? After all, that's what this is about, right ;) ?</p>
+</div>
+
 <h2>Current Status:</h2>
 
 <section class="counters">
@@ -64,6 +70,9 @@
 </section>
 
 <h2>Progress:</h2>
+<div class="information" id="progres">
+    <p>Here you can find your progress, how many carrots you have grown and how many you have eaten. Here, too, you can check the details of each of the stages you have gone through. Go ahead.</p>
+</div>
 
 <table class="redTable">
     <thead>

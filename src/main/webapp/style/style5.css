@@ -9,7 +9,7 @@
     justify-content: flex-start;
     heigh: 100vh;
     background: #f55726;
-    padding: 40px 20px;
+    padding: 20px 40px 5px 40px;
     border-bottom: 5px white;
     border-top: 5px #ff5900;
 }
@@ -27,6 +27,10 @@
     text-align: center;
 }
 
+div.information p{
+    font-size: 20px;
+}
+
 @media(max-width: 700px) {
     .counters .container{
         grid-template-columns: repeat(2, 1fr);
@@ -36,12 +40,12 @@
 
 .counters i {
     color: #ffbc8a;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .counters .counterFraction, .counterInteger{
     font-size: 45px;
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .hide{
@@ -55,7 +59,7 @@
     padding: 0px;
     border:2px solid #ff5900;
     display: table;
-/*    overflow: hidden;*/
+    font-size: 20px;
     width: 100%;
 }
 .header li{
@@ -76,7 +80,7 @@
 
 
 .focus {
-    background-color: #b45e38;
+    background-color: #eb6930;
     position: sticky;
     top: 0;
 }
@@ -118,8 +122,8 @@ body {
 }
 
 table.redTable {
-    border: 2px solid #a43613;
-    background-color: #f5bba6;
+    border: 2px solid #be674e;
+    background-color: #f59863;
     width: 80%;
     text-align: center;
     border-collapse: collapse;
@@ -127,7 +131,7 @@ table.redTable {
     margin-right: auto;
 }
 table.redTable td, table.redTable th {
-    border: 1px solid #AAAAAA;
+    border: 1px solid #be674e;
     padding: 3px 2px;
 }
 table.redTable tbody td {
@@ -135,10 +139,10 @@ table.redTable tbody td {
     height: 35px;
 }
 table.redTable tr:nth-child(even) {
-    background: #f5bba6;
+    background: #f59863;
 }
 table.redTable thead {
-    background: #a43613;
+    background: #eb6930;
 }
 table.redTable thead th {
     height: 40px;
@@ -146,7 +150,7 @@ table.redTable thead th {
     font-weight: bold;
     color: #FFFFFF;
     text-align: center;
-    border-left: 2px solid #a43613;
+    border-left: 2px solid #be674e;
 }
 table.redTable thead th:first-child {
     border-left: none;
@@ -157,14 +161,14 @@ table.redTable tfoot {
     font-size: 20px;
     font-weight: bold;
     color: #FFFFFF;
-    background: #a43613;
+    background: #eb6930;
 }
 table.redTable tfoot td {
 
     height: 40px;
     font-size: 20px;
     color: #FFFFFF;
-    background: #a43613;
+    background: #eb6930;
 }
 table.redTable tfoot .links {
     text-align: right;
@@ -180,7 +184,7 @@ table.redTable tfoot .links a{
     text-decoration: none;
     display: inline-block;
     background: #FFFFFF;
-    color: #a43613;
+    color: #eb6930;
     padding: 2px 8px;
     border-radius: 5px;
 
@@ -192,7 +196,7 @@ table.redTable tfoot .links a.active{
 
 
 table.redTable tbody tr.hidemy{
-    background: #b45e38;
+    background: #eb6930;
 }
 
 

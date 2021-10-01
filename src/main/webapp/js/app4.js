@@ -1,4 +1,6 @@
 $(function () {
+
+
     $(window).on('scroll', function () {
         if ( $(window).scrollTop() > 10 ) {
             $('.header').addClass('focus');
@@ -72,13 +74,13 @@ $(function () {
     });
 
     var countersFraction = document.querySelectorAll(".counterFraction");
-    var speed = 200;
-
+    var speed = 100;
 
 
     countersFraction.forEach(counter => {
         var updateCount = () => {
             var target = +counter.getAttribute('data-target');
+
 
             var count = +counter.innerText;
 
@@ -86,7 +88,7 @@ $(function () {
 
             if(count < target){
                 counter.innerText = Math.ceil((count + inc)*4)/4;
-                setTimeout(updateCount, 10);
+                setTimeout(updateCount, 20);
             }else{
                 count.innerText = target;
             }
