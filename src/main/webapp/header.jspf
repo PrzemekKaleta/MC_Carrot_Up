@@ -16,7 +16,7 @@
     </head>
     <body>
 
-    <header class="header">
+    <header class="header" id="header">
         <ul class="header">
             <li style="float: left" class="header"><a href="/">Home</a></li>
             <li class="header"><a href="/tag"> Tag </a></li>

@@ -27,9 +27,14 @@
     text-align: center;
 }
 
+section.sectionglobal{
+    padding-bottom: 40px;
+}
+
 div.information p{
     font-size: 20px;
 }
+
 
 @media(max-width: 700px) {
     .counters .container{
@@ -122,7 +127,7 @@ body {
 }
 
 table.redTable {
-    border: 2px solid #be674e;
+    border: 3px solid #be674e;
     background-color: #f59863;
     width: 80%;
     text-align: center;
@@ -198,6 +203,14 @@ table.redTable tfoot .links a.active{
 table.redTable tbody tr.hidemy{
     background: #eb6930;
 }
+
+h2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
 
 
 

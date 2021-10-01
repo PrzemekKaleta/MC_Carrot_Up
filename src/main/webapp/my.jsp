@@ -10,8 +10,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-
-
 <html>
 <head>
     <title>My page</title>
@@ -27,105 +25,109 @@
 
 <body>
 
-<h1>Welcome to Carrot, in a place where you can save your progress in learning programming. </h1>
+  <h1>Welcome to Carrot, in a place where you can save your progress in learning programming. </h1>
+  <%@ include file="header.jspf" %>
 
-<%@ include file="header.jspf" %>
 
-<h2>Rures:</h2>
-<div class="information" id="rules">
-    <p>One carrot is an posibility to one hour of playing video games. You play - you eat it. In order to get some carrots, you have to work hard by learning or achieving success. You can combine each saved learning time into tags to later verify what you have learned the most and the least.</p>
-    <p>Each hour of learning is only a fraction of a carrot, but you decide for yourself what can be a success and how valid it is. Completed project? CV sent? How about getting a job? After all, that's what this is about, right ;) ?</p>
-</div>
+    <section id="current" class="sectionglobal">
 
-<h2>Current Status:</h2>
+        <h2>Current Status</h2>
+        <section class="counters">
+            <div class="container">
+                <div>
+                    <i class="fas fa-carrot fa-4x"></i>
+                    <div class="counterFraction" data-target="${currentCarrots}">0</div>
+                    <h3>Current carrots</h3>
+                </div>
+                <div>
+                    <i class="fas fa-gamepad fa-4x"></i>
+                    <div class="counterFraction" data-target="${sumOfGamesHours}">0</div>
+                    <h3>Play hours</h3>
+                </div>
+                <div>
+                    <i class="fas fa-school fa-4x"></i>
+                    <div class="counterFraction" data-target="${sumOfTrainingHours}">0</div>
+                    <h3>Lerning hours</h3>
+                </div>
+                <div>
+                    <i class="fas fa-tasks fa-4x"></i>
+                    <div class="counterInteger" data-target="${allSuccess}">0</div>
+                    <h3>All successes</h3>
+                </div>
+                <div>
+                    <i class="fas fa-hourglass-half fa-4x"></i>
+                    <div class="counterFraction" data-target="${maxLearningHours}">0</div>
+                    <h3>Max learning hours of one day</h3>
+                </div>
+            </div>
+        </section>
+    </section>
+  <section id="rules" class="sectionglobal">
+      <h2>Rures</h2>
+      <div class="information" id="rules">
+          <p>One carrot is an posibility to one hour of playing video games. You play - you eat it. In order to get some carrots, you have to work hard by learning or achieving success. You can combine each saved learning time into tags to later verify what you have learned the most and the least.</p>
+          <p>Each hour of learning is only a fraction of a carrot, but you decide for yourself what can be a success and how valid it is. Completed project? CV sent? How about getting a job? After all, that's what this is about, right ;) ?</p>
+      </div>
+  </section>
 
-<section class="counters">
-    <div class="container">
-        <div>
-            <i class="fas fa-carrot fa-4x"></i>
-            <div class="counterFraction" data-target="${currentCarrots}">0</div>
-            <h3>Current carrots</h3>
+    <section id="progress" class="sectionglobal">
+        <h2>Progress</h2>
+        <div class="information">
+            <p>Here you can find your progress, how many carrots you have grown and how many you have eaten. Here, too, you can check the details of each of the stages you have gone through. Go ahead.</p>
         </div>
-        <div>
-            <i class="fas fa-gamepad fa-4x"></i>
-            <div class="counterFraction" data-target="${sumOfGamesHours}">0</div>
-            <h3>Play hours</h3>
-        </div>
-        <div>
-            <i class="fas fa-school fa-4x"></i>
-            <div class="counterFraction" data-target="${sumOfTrainingHours}">0</div>
-            <h3>Lerning hours</h3>
-        </div>
-        <div>
-            <i class="fas fa-tasks fa-4x"></i>
-            <div class="counterInteger" data-target="${allSuccess}">0</div>
-            <h3>All successes</h3>
-        </div>
-        <div>
-            <i class="fas fa-hourglass-half fa-4x"></i>
-            <div class="counterFraction" data-target="${maxLearningHours}">0</div>
-            <h3>Max learning hours of one day</h3>
-        </div>
-    </div>
-</section>
 
-<h2>Progress:</h2>
-<div class="information" id="progres">
-    <p>Here you can find your progress, how many carrots you have grown and how many you have eaten. Here, too, you can check the details of each of the stages you have gone through. Go ahead.</p>
-</div>
+        <table class="redTable">
+            <thead>
+            <tr>
+                <th>Number</th>
+                <th>Date</th>
+                <th>Upload</th>
+                <th>Carrots</th>
+                </tr>
 
-<table class="redTable">
-    <thead>
-    <tr>
-        <th>Number</th>
-        <th>Date</th>
-        <th>Upload</th>
-        <th>Carrots</th>
-        </tr>
+            </thead>
+            <tbody>
+        <c:forEach items="${buffers}" var="buffer" varStatus="countStat">
+                <tr class="zoominf">
+                    <td>${countStat.count + (tablePage - 1) * 10}</td>
+                    <td>${buffer.bufferDate}</td>
+                    <td>${buffer.bufferUpload}</td>
+                    <td>${buffer.bufferCarrots}</td>
+                </tr>
+                <tr class="hidemy hide">
+                    <td colspan="4">
+                        <div>${buffer.moreInformation}</div>
+                    </td>
+                </tr>
+        </c:forEach>
+            </tbody>
+            <tfoot>
+            <td colspan="4" class="links">
+                <div>
+                    <c:if test="${tablePage != 1}">
+                        <a href="/?tablePage=${tablePage - 1}#progress">&laquo;</a>
+                    </c:if>
 
-    </thead>
-    <tbody>
-<c:forEach items="${buffers}" var="buffer" varStatus="countStat">
-        <tr class="zoominf">
-            <td>${countStat.count + (tablePage - 1) * 10}</td>
-            <td>${buffer.bufferDate}</td>
-            <td>${buffer.bufferUpload}</td>
-            <td>${buffer.bufferCarrots}</td>
-        </tr>
-        <tr class="hidemy hide">
-            <td colspan="4">
-                <div>${buffer.moreInformation}</div>
+                    <c:forEach begin="1" end="${totalPages}" var="pageStep">
+                        <a href="/?tablePage=${pageStep}#progress" <c:if test="${pageStep == tablePage}">class="active chosen"</c:if> >${pageStep}</a>
+                    </c:forEach>
+
+                    <c:if test="${tablePage != totalPages}">
+                        <a href="/?tablePage=${tablePage + 1}#progress">&raquo;</a>
+                    </c:if>
+                </div>
             </td>
-        </tr>
-</c:forEach>
-    </tbody>
-    <tfoot>
-    <td colspan="4" class="links">
-        <div>
-            <c:if test="${tablePage != 1}">
-                <a href="/?tablePage=${tablePage - 1}">&laquo;</a>
-            </c:if>
-
-            <c:forEach begin="1" end="${totalPages}" var="pageStep">
-                <a href="/?tablePage=${pageStep}" <c:if test="${pageStep == tablePage}">class="active chosen"</c:if> >${pageStep}</a>
-            </c:forEach>
-
-            <c:if test="${tablePage != totalPages}">
-                <a href="/?tablePage=${tablePage + 1}">&raquo;</a>
-            </c:if>
+            </tfoot>
+        </table>
+    </section>
+    <section id="more" class="sectionglobal">
+        <h2>More information</h2>
+        <div class="information">
+            <p>The website was created as an experimental field for learning, and by the way, it is to give the creator the opportunity to record their learning progress. Therefore, items on the page may not work perfectly with the browser and some features maybe just don't work. Please, guest, be understanding to the novice programmer.</p>
         </div>
-    </td>
-    </tfoot>
-</table>
+    </section>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu sagittis metus, sed faucibus metus. Aenean a fringilla quam, non efficitur massa. Proin interdum maximus nulla, et aliquam nibh maximus et. Phasellus id elementum lacus. Nam nec dolor vel mauris faucibus commodo eget non risus. Vestibulum malesuada vitae ex consequat aliquam. Nullam ut posuere felis. Cras malesuada faucibus lectus, ac accumsan metus viverra at. Ut congue ex vehicula sapien condimentum dictum vitae id erat. Proin ut ante tempor, posuere nunc in, efficitur metus. Morbi non neque orci. Suspendisse ullamcorper dui nec vulputate luctus. Curabitur ornare tempor consequat. Vestibulum sit amet tortor felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p>
-
-
-<%@ include file="footer.jspf" %>
+    <%@ include file="footer.jspf" %>
 
 </body>
 
