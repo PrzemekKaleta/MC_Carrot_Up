@@ -12,7 +12,35 @@
         <title>Footer Part Page</title>
     </head>
     <body>
-
-    <p>My <a href="https://github.com/PrzemekKaleta?tab=repositories">work</a></p>
+      <footer>
+          <div class="haveLink">
+              <p>More about <a href="/https://github.com/PrzemekKaleta?tab=repositories">my work</a></p>
+          </div>
+          <div class="materials">
+              <div>
+                  <p>And more about the materials I used:</p>
+              </div>
+              <div class="inside">
+                  <div class="haveLink">
+                      <p>Photo by <a href="https://unsplash.com/@tamanna_rumee?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tamanna Rumee</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+                  </div>
+                  <div class="haveLink">
+                      <p>Lerning Java from <a href="https://coderslab.pl/">Coderslab</a></p>
+                  </div>
+                  <div class="haveLink">
+                      <p>Some JS tips from <a href="https://www.youtube.com/c/TraversyMedia">TraversyMedia</a></p>
+                  </div>
+              </div>
+          </div>
+      </footer>
+<%--      <footer class="footer">
+          <ul class="footer">
+              <li style="float: left" class="footer"><a href="https://github.com/PrzemekKaleta?tab=repositories">More about my work</a></li>
+              <li class="footer">Photo by <a href="https://unsplash.com/@tamanna_rumee?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tamanna Rumee</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></li>
+              <li class="footer">Lerning from <a href="https://coderslab.pl/">Coderslab</a></li>
+              <li class="footer">Somethings form JS from<a href="https://www.youtube.com/c/TraversyMedia">TraversyMedia</a></li>
+              <li class="footer">And more about the materials I used:</li>
+          </ul>
+      </footer>--%>
     </body>
 </html>

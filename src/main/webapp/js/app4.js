@@ -58,6 +58,16 @@ $(function () {
         $(this).removeClass('active2');
     });
 
+    var footerDiv = $(document).find('footer div.haveLink');
+    footerDiv.on('mouseover',function () {
+        $(this).addClass('active');
+        $(this).find('a').addClass('active2');
+    });
+    footerDiv.on('mouseleave',function () {
+        $(this).removeClass('active');
+        $(this).find('a').removeClass('active2');
+    });
+
 
 
     var pagesTable = $(document).find('.links a');
