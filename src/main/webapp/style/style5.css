@@ -112,36 +112,9 @@ header{
     margin-left: auto;
     margin-right: auto;
     background-color: #f55726;
-}
-
-/*.footer ul{
-    list-style-type: none;
-    margin: 0 auto;
-    padding: 0px;
-    border:2px solid #ff5900;
-    display: table;
-    font-size: 20px;
-    width: 100%;
-}
-
-.footer li{
-    list-style-type: none;
-    color: white;
-    float: right;
-    padding: 0;
-    max-width: 250px;
-    margin-left: auto ;
-    margin-right: auto ;
+    z-index: 1;
 
 }
-
-.footer a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}*/
 
 
 footer{
@@ -262,7 +235,7 @@ table.redTable tfoot .links a{
 
 table.redTable tfoot .links a.active{
      background: black;
- }
+}
 
 
 table.redTable tbody tr.hidemy{
@@ -275,7 +248,161 @@ h2{
     justify-content: center;
 }
 
+.form-box{
+    max-width: 500px;
+    background-color: rgba(255,89,0,0.8);
+    margin:50px auto;
+    padding:50px;
+    border-radius:10px;
+}
 
+.form-box label{
+    display: block;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+
+}
+.radio-box label{
+    padding-left: 75px;
+}
+
+div.radio-box {
+    padding-bottom: 30px;
+}
+
+.form-box label input[type="radio"]{
+    display: none;
+}
+
+
+
+.form-box label span{
+    font-size: 30px;
+    color: white;
+    display: inline-block;
+    transition:color .5s ease;
+
+}
+
+.form-box label .circle{
+    height: 30px;
+    width: 30px;
+    border: 5px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left:0;
+    top:3px;
+    transition: border-color .5s ease;
+}
+
+.form-box label .circle::before{
+    content: '';
+    height: 20px;
+    width: 20px;
+    background-color: black;
+    position: absolute;
+    left:0;
+    top:0;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin-left: 5px;
+    margin-top: 5px;
+    transition: transform .5s ease;
+    transform: scale(0);
+}
+
+
+
+.form-box label input:checked +.circle{
+    border-color: black;
+}
+
+.form-box label input:checked + .circle::before{
+    transform: scale(1);
+}
+
+.form-box label input:checked +.circle + span{
+    color: black;
+}
+
+.form-box label input[type="date"]{
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.form-box textarea{
+    background-color: rgba(255,255,255,0.2);
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.form-title{
+    font-size: 25px;
+    text-align: center;
+
+}
+
+.form-box input[type="submit"]{
+    background-color: rgb(255,255,255);
+    padding: 15px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+
+
+/*label.container {
+    display: block;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radio {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+
+
+}
+
+.radio__input{
+    display: none;
+}
+
+.radio a{
+    text-decoration: none;
+}*/
 
 
 

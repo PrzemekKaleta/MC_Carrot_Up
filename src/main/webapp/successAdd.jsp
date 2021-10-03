@@ -10,29 +10,47 @@
 
 <html>
 <head>
-    <title>Success add page</title>
+    <title>Success add</title>
+    <link rel="stylesheet" type="text/css" href="style/style5.css">
+    <script src="js/jquery-3.6.0.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <script src="js/app4.js" type="text/javascript"></script>
 </head>
 <body>
 
+<h1>Here you can add success to increase carrot level</h1>
+
 <%@ include file="header.jspf" %>
 
-<h1>Here you can add some success to increase carrot level</h1>
-
-<p>Current carrots: ${carrots}</p>
-<form action="/success-add" method="post">
-    <label>Choose kind of success:<br>
-        <c:forEach items="${kinds}" var="kind" varStatus="count">
-            <input type="radio" name="chosenKind" value="${kind.kindId}"><a href="/kind?name=${kind.kindName}">${kind.kindRatio} : ${kind.kindName}</a><c:if test="${count.count%5==0}"><br></c:if>
-        </c:forEach>
-    </label><br><br>
-    <label>Choose day of success:<br>
-        <input type="date" name="date" value="${currentDate}" max="${currentDate}">
-    </label><br><br>
-    <label>Describe this success:<br>
-        <textarea name="description" cols="30" rows="3"></textarea>
-    </label><br><br>
-    <input type="submit" value="Add success"><br><br>
-</form>
+<section>
+    <div class="information">
+        <p>Current carrots: ${carrots}</p>
+    </div>
+</section>
+<section>
+    <form action="/success-add" method="post" class="form-box">
+        <div class="form-title">Choose kind of success:</div>
+        <div class="radio-box">
+            <c:forEach items="${kinds}" var="kind" varStatus="count">
+                <label>
+                    <input type="radio" name="chosenKind" value="${kind.kindId}">
+                    <div class="circle"></div>
+                    <span>${kind.kindRatio} : ${kind.kindName}</span>
+                    <a href="/kind?name=${kind.kindName}"><div class="dot"></div></a>
+                </label>
+            </c:forEach>
+        </div>
+        <label class="form-title">Choose day of success:<br>
+            <input type="date" name="date" value="${currentDate}" max="${currentDate}">
+        </label><br><br>
+        <label class="form-title">Describe this success:<br>
+            <textarea name="description" cols="30" rows="3"></textarea>
+        </label><br><br>
+        <input type="submit" value="Add success"><br><br>
+    </form>
+</section>
 
 <%@ include file="footer.jspf" %>
 

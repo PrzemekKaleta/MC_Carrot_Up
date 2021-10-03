@@ -128,4 +128,14 @@ $(function () {
         updateCount();
     });
 
+
+    var button = $(document).find('input[type="submit"]');
+    button.on("mouseover", function () {
+        $(this).addClass("active2");
+    });
+
+    button.on("mouseleave", function () {
+        $(this).removeClass("active2");
+    });
+
 });
