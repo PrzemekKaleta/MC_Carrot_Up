@@ -151,4 +151,19 @@ $(function () {
 
     });
 
+    var formAddSuccess = $(document).find('form#addSuccess');
+
+    formAddSuccess.submit(function (ev) {
+        console.log("FOO");
+
+        if(!$('input[type=radio]:checked').val()){
+            alert("You don't choose kind of success");
+            ev.preventDefault();
+        };
+
+    });
+
+
+
+
 });

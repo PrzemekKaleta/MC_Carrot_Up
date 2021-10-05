@@ -52,10 +52,13 @@ public class ServletSuccessAdd extends HttpServlet {
         Success success = new Success(nextBufferId,chosenKindId,succesDescription);
         successDAO.addSuccess(success);
 
-        ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
-        request.setAttribute("buffers", buffers);
+/*        ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
+        request.setAttribute("buffers", buffers);*/
 
-        getServletContext().getRequestDispatcher("/my.jsp").forward(request, response);
+
+
+//        getServletContext().getRequestDispatcher("/my.jsp").forward(request, response);
+        response.sendRedirect("/");
 
     }
 

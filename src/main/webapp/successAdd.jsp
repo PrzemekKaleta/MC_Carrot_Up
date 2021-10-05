@@ -31,7 +31,7 @@
     </div>
 </section>
 <section>
-    <form action="/success-add" method="post" class="form-box">
+    <form id="addSuccess" action="/success-add" method="post" class="form-box">
         <div class="form-title">Choose kind of success:</div>
         <div class="radio-box">
             <c:forEach items="${kinds}" var="kind" varStatus="count">
@@ -44,7 +44,7 @@
             </c:forEach>
         </div>
         <label class="form-title">Choose day of success:<br>
-            <input type="date" name="date" value="${currentDate}" max="${currentDate}">
+            <input id="successDate" type="date" name="date" value="${currentDate}" max="${currentDate}">
         </label><br><br>
         <label class="form-title">Describe this success:<br>
             <textarea name="description" cols="30" rows="3"></textarea>
