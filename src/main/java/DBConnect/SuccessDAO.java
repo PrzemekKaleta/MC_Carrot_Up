@@ -53,7 +53,7 @@ public class SuccessDAO {
                 success.setBufferID(rs.getInt("buffer_id"));
                 success.setKindID(rs.getInt("kind_id"));
                 success.setSuccessID(rs.getInt("success_id"));
-                success.setSuccessDescription("success_description");
+                success.setSuccessDescription(rs.getString("success_description"));
 
             }
 
