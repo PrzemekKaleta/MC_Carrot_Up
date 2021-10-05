@@ -13,6 +13,7 @@
     <title>Success add</title>
     <link rel="stylesheet" type="text/css" href="style/style5.css">
     <script src="js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
@@ -26,7 +27,7 @@
 
 <section>
     <div class="information">
-        <p>Current carrots: ${carrots}</p>
+        <h2>Current carrots: ${carrots}</h2>
     </div>
 </section>
 <section>
@@ -38,7 +39,7 @@
                     <input type="radio" name="chosenKind" value="${kind.kindId}">
                     <div class="circle"></div>
                     <span>${kind.kindRatio} : ${kind.kindName}</span>
-                    <a href="/kind?name=${kind.kindName}"><div class="dot"></div></a>
+                    <a href="/kind?name=${kind.kindName}"><i class="fas fa-info-circle fa-2x dot"></i></a>
                 </label>
             </c:forEach>
         </div>

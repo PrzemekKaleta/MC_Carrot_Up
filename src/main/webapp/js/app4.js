@@ -108,8 +108,6 @@ $(function () {
     var countersInteger = document.querySelectorAll(".counterInteger");
 
 
-
-
     countersInteger.forEach(counter => {
         var updateCount = () => {
             var target = +counter.getAttribute('data-target');
@@ -131,11 +129,26 @@ $(function () {
 
     var button = $(document).find('input[type="submit"]');
     button.on("mouseover", function () {
-        $(this).addClass("active2");
+        $(this).addClass("active");
+
     });
 
     button.on("mouseleave", function () {
-        $(this).removeClass("active2");
+        $(this).removeClass("active");
+
+    });
+
+    var infoLinks = $(document).find('i.dot');
+    infoLinks.on("mouseover", function () {
+        $(this).removeClass("dot");
+        $(this).addClass("active3");
+
+    });
+
+    infoLinks.on("mouseleave", function () {
+        $(this).addClass("dot");
+        $(this).removeClass("active3");
+
     });
 
 });

@@ -45,7 +45,13 @@ div.information p{
 
 .counters i {
     color: #ffbc8a;
-    margin-bottom: 0px;
+
+
+}
+
+i.dot {
+    color: #b83416;
+
 }
 
 .counters .counterFraction, .counterInteger{
@@ -99,10 +105,15 @@ div.information p{
 .active {
     background-color: black;
     color: white;
+
 }
 
 .active2 {
     font-weight: bold;
+}
+
+.active3 {
+    color: black;
 }
 
 
@@ -278,7 +289,7 @@ div.radio-box {
 
 
 .form-box label span{
-    font-size: 30px;
+    font-size: 25px;
     color: white;
     display: inline-block;
     transition:color .5s ease;
@@ -360,7 +371,7 @@ div.radio-box {
 }
 
 .form-box input[type="submit"]{
-    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255,0.5);
     padding: 15px;
     font-size: 20px;
     border: none;
@@ -371,43 +382,3 @@ div.radio-box {
     margin-right: auto;
 
 }
-
-
-
-
-/*label.container {
-    display: block;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.radio {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
-    margin-right: 10px;
-
-
-}
-
-.radio__input{
-    display: none;
-}
-
-.radio a{
-    text-decoration: none;
-}*/
-
-
-
-
-
-
-
-
