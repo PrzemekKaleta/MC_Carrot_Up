@@ -52,11 +52,15 @@
           <h2>Here are all kinds of success:</h2>
       </div>
   </section>
-
-  <c:forEach var="kind" items="${kinds}">
-    <a href="/kind?name=${kind.kindName}">${kind.kindRatio} : ${kind.kindName}</a><br>
-  </c:forEach>
-
+  <section id="tagKind">
+    <div class="tag-box">
+        <c:forEach var="kind" items="${kinds}">
+            <div>
+            <a class="tag-box" href="/kind?name=${kind.kindName}">${kind.kindRatio} : ${kind.kindName}</a>
+            </div>
+        </c:forEach>
+    </div>
+  </section>
 
   <%@ include file="footer.jspf" %>
 
