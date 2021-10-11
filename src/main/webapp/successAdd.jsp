@@ -43,12 +43,14 @@
                 </label>
             </c:forEach>
         </div>
-        <label class="form-title">Choose day of success:<br>
+        <div class="form-title">Choose day of success:</div>
+        <label>
             <input id="successDate" type="date" name="date" value="${currentDate}" max="${currentDate}">
-        </label><br><br>
-        <label class="form-title">Describe this success:<br>
+        </label>
+        <div class="form-title">Describe this success:</div>
+        <label>
             <textarea name="description" cols="30" rows="3"></textarea>
-        </label><br><br>
+        </label>
         <input type="submit" value="Add success"><br><br>
     </form>
 </section>

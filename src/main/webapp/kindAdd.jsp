@@ -25,7 +25,7 @@
 
   <section>
       <div class="information">
-          <h2>Please add new success type (kind):</h2>
+          <h2>Please add new success type (kind). Below you can see different already existed types and their carrot ratio. It can be helpful to decide for this new type of success how high award should be.</h2>
       </div>
   </section>
 
@@ -33,7 +33,7 @@
 
       <div class="form-title">Write kind name:</div>
       <label>
-          <input type="text" name="name">
+          <input type="text" name="name" required="required">
           <div class="watchOut"><c:if test="${kindExist}">This name already exist, use other name for this success.</c:if></div>
       </label>
       <div class="form-title">Write kind description:</div>
