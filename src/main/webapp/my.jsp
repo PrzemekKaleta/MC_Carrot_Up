@@ -63,7 +63,7 @@
         </section>
     </section>
   <section id="rules" class="sectionglobal">
-      <h2>Rures</h2>
+      <h2>Rules</h2>
       <div class="information" id="rules">
           <p>One carrot is an posibility to one hour of playing video games. You play - you eat it. In order to get some carrots, you have to work hard by learning or achieving success. You can combine each saved learning time into tags to later verify what you have learned the most and the least.</p>
           <p>Each hour of learning is only a fraction of a carrot, but you decide for yourself what can be a success and how valid it is. Completed project? CV sent? How about getting a job? After all, that's what this is about, right ;) ?</p>

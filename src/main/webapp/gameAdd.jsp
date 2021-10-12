@@ -35,6 +35,7 @@
             <h2>Current carrots: ${carrots}</h2>
         </div>
     </section>
+
     <form action="/game-add" method="post" class="form-box">
         <div class="form-title">Write hours of gaming:</div>
         <label>
