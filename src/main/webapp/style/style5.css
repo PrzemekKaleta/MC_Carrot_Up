@@ -281,7 +281,7 @@ h2{
 .form-box{
     max-width: 500px;
     background-color: rgba(255,89,0,0.8);
-    margin:50px auto;
+    margin:10px auto 50px auto;
     padding:50px;
     border-radius:10px;
 }
@@ -290,7 +290,7 @@ h2{
     max-width: 500px;
     color: black;
     background-color: rgba(255,255,255,0.8);
-    margin:50px auto;
+    margin: 10px auto 50px auto;
     padding:50px;
     border-radius:10px;
     text-align: center;
@@ -501,6 +501,47 @@ div.watchOut{
     background: black;
 }
 
+.tag-box2{
+    color: black;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 3px;
+    grid-auto-rows: minmax(80px, auto);
+
+}
+
+.tag-box2 a{
+
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    padding: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.tag-box2 div{
+    background: rgb(100,100,100);
+    padding: 5px;
+}
+
+.tag-box2 div:nth-child(odd){
+    background: rgba(66,66,66,0.5);
+}
+
+.tag-box2 a.previous{
+    color: black;
+}
+
+.tag-box2 a.second{
+    color: white;
+    background: black;
+}
+
 
 .form-title{
     font-size: 25px;
@@ -515,6 +556,8 @@ section#tagKind{
 
 
 
+
+
 .form-box input[type="submit"]{
     background-color: rgba(255,255,255,0.5);
     padding: 15px;
@@ -526,4 +569,25 @@ section#tagKind{
     margin-left: auto;
     margin-right: auto;
 
+}
+
+.change-button{
+    height: 60px;
+    width: 60px;
+    border: 3px solid black;
+    border-radius: 30px;
+
+}
+
+.change-button a{
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    display: block;
+    margin: auto;
+
+}
+
+.change-button i{
+    color:black;
 }

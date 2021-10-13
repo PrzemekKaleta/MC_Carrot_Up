@@ -177,6 +177,20 @@ $(function () {
 
     });
 
+    var linksOfTagBox2 = $(document).find('div.tag-box2 a');
+
+    linksOfTagBox2.on("mouseover", function () {
+        $(this).removeClass("previous");
+        $(this).addClass("second");
+
+    });
+
+    linksOfTagBox2.on("mouseleave", function () {
+        $(this).addClass("previous");
+        $(this).removeClass("second");
+
+    });
+
 
 
 
