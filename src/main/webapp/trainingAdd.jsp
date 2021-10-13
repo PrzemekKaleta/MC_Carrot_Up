@@ -73,18 +73,25 @@
         <textarea name="description" cols="30" rows="3"></textarea>
     </label>
     <div class="form-title">Chose tags suitable to training:</div>
-    <label>
+    <div class="check-box">
+         <c:forEach items="${tags}" var="tag" varStatus="count">
+             <label class="check-item">
+                <input type="checkbox" name="chosenTags" value="${tag.tagId}">
+                <span>${tag.tagName}</span>
+                <a href="/tag?name=${tag.tagName}"><i class="fas fa-info-circle fa-2x dot"></i></a>
+             </label>
+         </c:forEach>
 
-        <c:forEach items="${tags}" var="tag" varStatus="count">
-            <input type="checkbox" name="chosenTags" value="${tag.tagId}"><a href="/tag?name=${tag.tagName}">${tag.tagName}</a><c:if test="${count.count%5==0}"><br></c:if>
-        </c:forEach>
-
-    </label>
+    </div>
     <input type="submit" value="Add training">
 
 
 </form>
 
+<%--
+<c:if test="${count.count%5==0}"><br></c:if>
+
+--%>
 
 <%@ include file="footer.jspf"%>
 

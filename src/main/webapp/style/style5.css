@@ -431,6 +431,35 @@ div.watchOut{
     margin-right: auto;
 
 }
+
+.check-box{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+
+}
+
+.check-item input{
+    display: none;
+}
+
+.check-item span{
+    padding: 6px 20px;
+    border: 3px solid #b83416;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: #ff5900;
+
+}
+
+.check-item input[type='checkbox']:checked ~ span{
+    color: black;
+    background-color: white;
+}
+
+
 .tag-box{
     color: black;
     display: grid;
