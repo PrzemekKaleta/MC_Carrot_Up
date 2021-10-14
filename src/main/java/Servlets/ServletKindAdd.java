@@ -34,14 +34,21 @@ public class ServletKindAdd extends HttpServlet {
             kind.setKindRatio(kindRatio);
 
             kindDAO.addKind(kind);
-
+            
         }
 
         ArrayList<Kind> kinds = kindDAO.getAllKind();
 
         request.setAttribute("kinds", kinds);
 
-        getServletContext().getRequestDispatcher("/kindAdd.jsp").forward(request, response);
+        if(checkKind.getKindId()!=0){
+            getServletContext().getRequestDispatcher("/kindAdd.jsp").forward(request, response);
+        }else {
+            String linkToKind = "/kind?name=" + kindName;
+
+            response.sendRedirect(linkToKind);
+        }
+
 
     }
 
