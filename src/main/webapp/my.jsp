@@ -13,7 +13,7 @@
 <html>
 <head>
     <title>My page</title>
-    <link rel="stylesheet" type="text/css" href="style/style5.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>Add training</title>
-    <link rel="stylesheet" type="text/css" href="style/style5.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
     <script src="js/jquery-3.6.0.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
