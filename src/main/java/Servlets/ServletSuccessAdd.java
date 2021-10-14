@@ -52,7 +52,7 @@ public class ServletSuccessAdd extends HttpServlet {
         Success success = new Success(nextBufferId,chosenKindId,succesDescription);
         successDAO.addSuccess(success);
 
-        response.sendRedirect("/");
+        response.sendRedirect("/#progress");
 
     }
 

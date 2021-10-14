@@ -54,7 +54,15 @@ public class ServletTagAdd extends HttpServlet {
         request.setAttribute("activeTags",tagDAO.getAllActiveTags());
         request.setAttribute("nonActiveTags",tagDAO.getAllNonActiveTags());
 
-        getServletContext().getRequestDispatcher("/tagAdd.jsp").forward(request,response);
+        if(tagCanBeSave){
+
+            String linkToKind = "/tag?name=" + tagName;
+            response.sendRedirect(linkToKind);
+
+        }else {
+
+            getServletContext().getRequestDispatcher("/tagAdd.jsp").forward(request, response);
+        }
 
     }
 

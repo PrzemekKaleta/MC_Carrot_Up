@@ -63,9 +63,7 @@ public class ServletGameAdd extends HttpServlet {
         ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
         request.setAttribute("buffers", buffers);
 
-        getServletContext().getRequestDispatcher("/my.jsp").forward(request, response);
-
-
+        response.sendRedirect("/#progress");
 
 
     }

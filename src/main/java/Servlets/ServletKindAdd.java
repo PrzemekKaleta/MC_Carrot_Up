@@ -34,7 +34,7 @@ public class ServletKindAdd extends HttpServlet {
             kind.setKindRatio(kindRatio);
 
             kindDAO.addKind(kind);
-            
+
         }
 
         ArrayList<Kind> kinds = kindDAO.getAllKind();
