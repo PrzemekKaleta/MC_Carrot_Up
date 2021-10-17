@@ -50,13 +50,14 @@ public class ServletMain extends HttpServlet {
 
         int totalBuffers = bufferDAO.getHowMayBuffers();
 
+        System.out.println("Total buffers " + totalBuffers);
+
         int totalPages = totalBuffers / 10;
         if(totalBuffers%10!=0){
             totalPages++;
         }
 
-        int endId = totalBuffers;
-        int startId = totalBuffers - 9;
+        int startId = 0;
 
         request.setAttribute("totalPages", totalPages);
         request.setAttribute("buffersQuantity",totalBuffers);
@@ -68,8 +69,7 @@ public class ServletMain extends HttpServlet {
             int tablePageNumber = Integer.parseInt(tablePage);
             if(tablePageNumber > 0 && tablePageNumber <= totalPages){
 
-                endId = totalBuffers - (10 * (tablePageNumber - 1));
-                startId = totalBuffers - (10 * tablePageNumber) + 1;
+                startId = tablePageNumber * 10 - 10;
                 request.setAttribute("tablePage", tablePage);
 
             }
@@ -80,12 +80,13 @@ public class ServletMain extends HttpServlet {
         }
 
         if(startId <= 1){
-            startId = 1;
+            startId = 0;
             request.setAttribute("noNext",true);
         }
 
+        System.out.println("Start ID " + startId);
 
-        ArrayList<BufferFull> buffers = bufferDAO.getBuffersFullFromTo(startId,endId);
+        ArrayList<BufferFull> buffers = bufferDAO.getBuffersFullFromToLimit(startId);
 
         request.setAttribute("buffers", buffers);
 
