@@ -22,7 +22,6 @@ public class ServletTag extends HttpServlet {
         boolean isChosen = Boolean.parseBoolean(request.getParameter("change"));
 
 
-
         TagDAO tagDAO = new TagDAO();
 
         if(isChosen){

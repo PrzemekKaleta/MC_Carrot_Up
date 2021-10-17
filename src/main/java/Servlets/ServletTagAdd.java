@@ -49,8 +49,6 @@ public class ServletTagAdd extends HttpServlet {
 
         }
 
-
-
         request.setAttribute("activeTags",tagDAO.getAllActiveTags());
         request.setAttribute("nonActiveTags",tagDAO.getAllNonActiveTags());
 

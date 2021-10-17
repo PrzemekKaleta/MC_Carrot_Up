@@ -25,7 +25,6 @@ import java.util.ArrayList;
 public class ServletTrainingAdd extends HttpServlet {
 
     private static double trainingRatio = 0.05;
-    static private int quantityOfBuffersToGet = 5;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -74,9 +73,6 @@ public class ServletTrainingAdd extends HttpServlet {
             ex.printStackTrace();
         }
 
-        ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
-        request.setAttribute("buffers", buffers);
-
         response.sendRedirect("/#progress");
 
 
@@ -88,20 +84,23 @@ public class ServletTrainingAdd extends HttpServlet {
         TagDAO tagDAO = new TagDAO();
         TrainingDAO trainingDAO = new TrainingDAO();
         TrainingFull trainingFull = trainingDAO.getLastFullTraining();
-        request.setAttribute("trainingHours", trainingFull.getTraining().getTrainingHours());
-        request.setAttribute("trainingDescription", trainingFull.getTraining().getTrainingDescryption());
-        request.setAttribute("trainingDate", trainingFull.getBuffer().getBufferDate());
-
-        ArrayList<Tag> tags = tagDAO.getAllActiveTags();
-        request.setAttribute("tags", tags);
 
         Date currentDate = Date.valueOf(LocalDate.now());
         request.setAttribute("currentDate", currentDate);
 
-        java.sql.Date date1 = trainingFull.getBuffer().getBufferDate();
+        if(null!=trainingFull.getTraining()){
+            request.setAttribute("trainingHours", trainingFull.getTraining().getTrainingHours());
+            request.setAttribute("trainingDescription", trainingFull.getTraining().getTrainingDescryption());
+            request.setAttribute("trainingDate", trainingFull.getBuffer().getBufferDate());
 
-        long daysBetween = Duration.between(date1.toLocalDate().atStartOfDay(), currentDate.toLocalDate().atStartOfDay()).toDays();
-        request.setAttribute("duration", daysBetween);
+            java.sql.Date date1 = trainingFull.getBuffer().getBufferDate();
+
+            long daysBetween = Duration.between(date1.toLocalDate().atStartOfDay(), currentDate.toLocalDate().atStartOfDay()).toDays();
+            request.setAttribute("duration", daysBetween);
+        }
+
+        ArrayList<Tag> tags = tagDAO.getAllActiveTags();
+        request.setAttribute("tags", tags);
 
         getServletContext().getRequestDispatcher("/trainingAdd.jsp").forward(request,response);
 

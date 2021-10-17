@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class ServletGameAdd extends HttpServlet {
 
     private static double gamingRatio = -1.0;
-    static private int quantityOfBuffersToGet = 5;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -59,9 +58,6 @@ public class ServletGameAdd extends HttpServlet {
         game.setBufferId(idOfNextBuffer);
 
         gameDAO.addGame(game);
-
-        ArrayList<Buffer> buffers = bufferDAO.getFewLastBuffers(quantityOfBuffersToGet);
-        request.setAttribute("buffers", buffers);
 
         response.sendRedirect("/#progress");
 

@@ -19,8 +19,6 @@ import java.util.ArrayList;
 @WebServlet("/")
 public class ServletMain extends HttpServlet {
 
-    static private int quantityOfBuffersToGet = 5;
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

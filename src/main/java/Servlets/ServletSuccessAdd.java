@@ -21,8 +21,6 @@ import java.util.ArrayList;
 @WebServlet("/success-add")
 public class ServletSuccessAdd extends HttpServlet {
 
-    static private int quantityOfBuffersToGet = 5;
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int chosenKindId = Integer.parseInt(request.getParameter("chosenKind"));
@@ -58,7 +56,6 @@ public class ServletSuccessAdd extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        SuccessDAO successDAO = new SuccessDAO();
 
         KindDAO kindDAO = new KindDAO();
         ArrayList<Kind> kinds= kindDAO.getAllKind();
