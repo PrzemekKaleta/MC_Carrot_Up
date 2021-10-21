@@ -46,6 +46,9 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <configuration>
                     <appName>mc-carrot</appName>
+                    <processTypes>
+                        <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+                    </processTypes>
                 </configuration>
                 <version>3.0.3</version>
             </plugin>
