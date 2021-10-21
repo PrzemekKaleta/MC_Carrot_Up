@@ -18,7 +18,6 @@ public class BufferDAO {
     private static String getCurrentCarrotsQuery = "SELECT buffer_carrots as bc FROM buffer ORDER BY buffer_id DESC LIMIT 1;";
     private static String getBuffersFromToLimitQuery = "SELECT * FROM buffer ORDER BY buffer_id DESC LIMIT ?, ?;";
 
-    //"SELECT count(*) as Num FROM tag_training where tag_id = ?;";
 
     public double getCurrentCarrots(){
 
