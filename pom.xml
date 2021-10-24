@@ -78,7 +78,7 @@
             <configuration>
                 <appName>mc-carrot</appName>
                 <processTypes>
-                    <web>java $JAVA_OPTS -cp 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --port $PORT</web>
+                    <web>java $JAVA_OPTS -jar 'target/dependency/*' webapp.runner.launch.Main target/*.war --enable-naming --port $PORT</web>
                 </processTypes>
             </configuration>
         </plugin>
