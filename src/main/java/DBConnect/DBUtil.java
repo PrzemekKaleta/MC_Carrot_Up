@@ -20,7 +20,7 @@ public class DBUtil {
             try{
 
                 Context ctx = new InitialContext();
-                Class.forName("com.mysql.cj.jdbc.Driver");
+                Class.forName("com.mysql.jdbc.Driver");
                 Context initContext = new InitialContext();
                 Context envContext = (Context)initContext.lookup("java:/comp/env");
                 ds = (DataSource)envContext.lookup("jdbc/learn");
