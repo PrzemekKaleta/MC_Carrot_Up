@@ -11,7 +11,7 @@
     <title>Heroku Check</title>
 </head>
 <body>
-<h1>Hello HEROKU</h1>
+    <h1>Hello HEROKU</h1>
 
 </body>
 </html>
