@@ -11,5 +11,5 @@
               maxTotal="1000"
               maxIdle="3000"
               maxWaitMillis="100000"
-              factory="org.apache.commons.dbcp.BasicDataSourceFactory"/>
+              />
 </Context>
