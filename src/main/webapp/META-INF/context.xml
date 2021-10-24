@@ -10,5 +10,6 @@
               url="jdbc:mysql://ulsq0qqx999wqz84.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/bu69n5202vapc5ea"
               maxTotal="1000"
               maxIdle="3000"
-              maxWaitMillis="100000" />
+              maxWaitMillis="100000"
+              factory="org.apache.commons.dbcp.BasicDataSourceFactory"/>
 </Context>
