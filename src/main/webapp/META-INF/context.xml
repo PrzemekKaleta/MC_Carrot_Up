@@ -3,8 +3,6 @@
     <Resource name="jdbc/learn"
               auth="Container"
               type="javax.sql.DataSource"
-              username="hexzstgcozkr91kb"
-              password="ywb8q85epgkpwoz5"
               driverClassName="com.mysql.jdbc.Driver"
               factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
               connectionProperties="useUnicode=yes;characterEncoding=utf8;useJDBCCompliantTimezoneShift=true;useLegacyDatetimeCode=false;serverTimezone=UTC"
