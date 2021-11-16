@@ -6,8 +6,6 @@
               driverClassName="com.mysql.jdbc.Driver"
               factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory"
               connectionProperties="useUnicode=yes;characterEncoding=utf8;useJDBCCompliantTimezoneShift=true;useLegacyDatetimeCode=false;serverTimezone=UTC"
-              username="hexzstgcozkr91kb"
-              password="ywb8q85epgkpwoz5"
               url="jdbc:mysql://ulsq0qqx999wqz84.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/bu69n5202vapc5ea"
               maxTotal="1000"
               maxIdle="3000"
